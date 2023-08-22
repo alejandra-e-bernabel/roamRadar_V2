@@ -1,7 +1,7 @@
 var startTripBtn = document.getElementById("startTripBtn");
 var whereToBox = document.getElementById("floatingInput");
-var startDate = document.getElementById("floatingInputGrid");
-var endDate = document.getElementById("floatingInputGrid2");
+var startDate = document.getElementById("startDate");
+var endDate = document.getElementById("endDate");
 
 var hasWarning = false;
 var autocomplete;

@@ -1,4 +1,4 @@
-/* (START OF NICOLES PORTION) */
+/* (START OF NICOLE'S PORTION) */
 * {
     font-family: "Inter", sans-serif;
     
@@ -8,14 +8,15 @@
     list-style: none;
     font-weight: bolder;
     text-align: center;
-    margin-left: -40px;
-    margin-bottom: 10px;
-    background-color: lightskyblue;
+    /* margin-left: -40px; */
+    /* margin-bottom: 10px; */
+    /* background-color: lightskyblue; */
   }
+  
   #logo {
     width: 100%;
-    margin-bottom: 5px;
-    background-color: lightskyblue;
+    /* margin-bottom: 5px; */
+    /* background-color: lightskyblue; */
   }
   .sidenav a:hover {
     color: white;
@@ -28,17 +29,56 @@
   .sidenav {
     height: 100%;
     width: 180px;
+
+    /* makes the navbar stay fully displayed no matter where user scrolls. */
     position: fixed;
     background-color: lightskyblue;
     overflow-x: hidden;
-    padding-top: 20px;
+    /* padding-top: 20px; */
     border-radius: 5px;
     z-index: 1;
     top: 0;
     left: 0;
   }
-  ul{
+
+  .sidenavSmallScreen {
+    display: flex;
+    
+  }
+
+  .imageContainer {
+    /* width: 100px;
+    height: auto; */
+    
+    
+  }
+
+  .ul{
     background-color: lightskyblue;
+    padding: 0px;
+    /* display: flex;
+    flex-wrap: wrap; */
+  }
+
+  .ulSmallScreen {
+
+    padding: 0px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: right;
+  }
+
+  .navigation {
+    display: flex;
+    background-color: black;
+
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 20px;
+
+    gap: 10px;
   }
   
   #locationTitle {
@@ -174,3 +214,15 @@
   }
   
   
+
+  .hidden {
+    display: none;
+  }
+
+  .radar {
+    color: #0D6FE5;  
+  }
+
+  .roam {
+    color: #03C1AF;
+}
