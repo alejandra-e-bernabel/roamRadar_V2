@@ -197,14 +197,14 @@ var visitButton = document.getElementById("flightButton");
 
 
 // Function to handle the navigation bar based on screen width
-function handleNavbar() {
-  if (window.innerWidth < 768) {
-      // Small screen: Show horizontal navigation bar on top
-      document.querySelector('.navbar').classList.remove('flex-column');
-  } else {
-      // Large screen: Show vertical navigation bar
-      document.querySelector('.navbar').classList.add('flex-column');
-  }
-}
+// function handleNavbar() {
+//   if (window.innerWidth < 768) {
+//       // Small screen: Show horizontal navigation bar on top
+//       document.querySelector('.navbar').classList.remove('flex-column');
+//   } else {
+//       // Large screen: Show vertical navigation bar
+//       document.querySelector('.navbar').classList.add('flex-column');
+//   }
+// }
 
-window.addEventListener('resize', handleNavbar);
+// window.addEventListener('resize', handleNavbar);

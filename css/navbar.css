@@ -1,14 +1,17 @@
 /* (START OF NICOLE'S PORTION) */
 * {
-    font-family: "Inter", sans-serif;
-    
+    font-family: "Inter", sans-serif;    
+  }
+
+  .nicoleIntro {
+    padding-top:0px;
   }
   
   li {
     list-style: none;
     font-weight: bolder;
     text-align: center;
-    /* margin-left: -40px; */
+    margin-left: -40px;
     /* margin-bottom: 10px; */
     /* background-color: lightskyblue; */
   }
@@ -26,6 +29,11 @@
     color: darkblue;
     background-color: lightskyblue;
   }
+
+  .sidenavSmallScreen a {
+    color:black;
+  }
+
   .sidenav {
     height: 100%;
     width: 180px;
@@ -35,22 +43,35 @@
     background-color: lightskyblue;
     overflow-x: hidden;
     /* padding-top: 20px; */
-    border-radius: 5px;
+    /* border-radius: 5px; */
     z-index: 1;
-    top: 0;
-    left: 0;
+    top: 0px;
+    left: 0px;
   }
 
   .sidenavSmallScreen {
     display: flex;
+
     
   }
 
   .imageContainer {
-    /* width: 100px;
-    height: auto; */
+    width: 200px;
+    height: auto;
+
     
-    
+  }
+
+  .roamRadar {
+
+    display: flex;
+    align-items: center;
+
+    justify-content: space-between;
+
+    /* padding-right: 10px; */
+
+    /* background-color: black; */
   }
 
   .ul{
@@ -61,12 +82,16 @@
   }
 
   .ulSmallScreen {
-
+    margin:0px;
     padding: 0px;
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
-    justify-content: right;
+    gap: 20px;
+    justify-content: center;
+
+    width:100%;
+
+    background-color:#87CEFA;
   }
 
   .navigation {
@@ -83,12 +108,12 @@
   
   #locationTitle {
     text-align: center;
-    margin-left: 200px;
-    margin-bottom: 30px;
+    /* margin-left: 200px; */
+    /* margin-bottom: 30px; */
     margin-top: 30px;
     background-color: #87CEFA;
-    width: 80%; 
-    border-radius: 10px;
+    width: 100%; 
+    /* border-radius: 10px; */
     padding: 5px;
     
   }
@@ -96,76 +121,57 @@
   #startAndEnd {
     text-align: center;
     display:flex;
+
+    gap: 10px;
+    justify-content: space-around;
   }
   
   #start {
-    margin-left: 200px;
+    /* margin-left: 200px; */
     text-align: center;
   }
   #end {
-    margin-left: 100px;
+    /* margin-left: 100px; */
   }
+
+
   #outputStart,
   #outputEnd,
   #outputTitle {
     color: darkblue;
     font-weight: bolder;
   }
+
+
   hr {
     width: 70%;
-    margin-left: 270px;
+    /* margin-left: 270px; */
     line-height: 10px;
   }
-  .placesToVisitTitle{
+
+  .title {
     background-color: #87CEFA;
-    width: 95%; 
-    border-radius: 10px;
     padding: 5px;
-  
+
+    font-family: 'Dancing Script', cursive;
+    font-weight: bolder;
+
   }
-  .flightTitle
-  {
-  background-color: #87CEFA;
-    width: 165%; 
-    border-radius: 10px;
-    padding: 5px;
-    margin-left: 100px;
-    margin-left: -130px;
+
+
+  #budgetButton {
+    /* margin-left: 150px; */
+    /* margin-bottom: 20px; */
   }
-  .hotelTitle{
-    background-color: #87CEFA;
-    width: 165%; 
-    border-radius: 10px;
-    padding: 5px;
-    margin-left: -130px;
-  }
-  .restaruantTitle{
-    background-color: #87CEFA;
-    width: 80%; 
-    border-radius: 10px;
-    padding: 5px;
-    text-align: center;
-    margin-left: 200px;
-    margin-top: 20px;
-  }
-  .budgetTitle{
-    background-color: #87CEFA;
-    width: 165%; 
-    border-radius: 10px;
-    padding: 5px;
-    margin-left: -130px;
-  }
-  #budgetButton{
-    margin-left: 150px;
-    margin-bottom: 20px;
-  }
+
   #flightButton, #hotelButton{
-    margin-left: 150px;
-    margin-bottom: 20px;
+    /* margin-left: 150px; */
+    /* margin-bottom: 20px; */
   }
+  
   #goToRestaurants{
-    margin-left: 450px;
-    margin-bottom: 20px;
+    /* margin-left: 450px; */
+    /* margin-bottom: 20px; */
     color: white;
   }
   
@@ -175,13 +181,13 @@
   /* Beginning of Alejandra's portion */
   
   .alejandraIntro {
-    margin-left: 200px;
+    /* margin-left: 200px; */
     text-align: center;
   }
   
   .thingsToDoItemized {
     background-color: aliceblue;
-    margin-right: 50px;
+    /* margin-right: 50px; */
   
   }
   

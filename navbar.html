@@ -18,6 +18,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300&family=Raleway:ital@1&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="css/navbar.css" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Pacifico&display=swap"
+  rel="stylesheet">
   <title>Navbar Code </title>
 </head>
 
@@ -25,8 +28,11 @@
   <!-- Please do not edit anything from this section (NICOLES PORTION) -->
   
   
-  <nav class = "navigation">
+  <nav class="hidden">
+    <div class="roamRadar">
     <div class="imageContainer">
+      <img src="images/ROAMRADAR Logo (transparent background) (4).jpg" id="logo" />
+    </div>
       <h1><span class="roam">Roam</span><span class="radar">Radar</span></h1>
     </div>
 
@@ -51,7 +57,7 @@
         <a class="nav-link" href="thingsToDo.html">Places to visit</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="loginPage.html">Log Out </a>
+        <a class="nav-link" href="loginPage.html" id="logout">Log Out </a>
       </li>
     </ul>
     </div>
@@ -61,7 +67,7 @@
 
 </nav>
 
-  <nav class="sidenav hidden">
+  <nav class="sidenav">
     <ul>
       <li><img src="images/ROAMRADAR Logo (transparent background) (4).jpg" id="logo" /></li>
       <li>
@@ -91,21 +97,21 @@
 
 
 
-  <section id="nicoles-intro">
-    <h1 id="locationTitle">You're heading to... <span id="outputTitle"> </span>!</h1>
-    <div class="row">
-      <div class="col">
-        <div id="startAndEnd">
+  <section id="nicoles-intro" class="nicoleIntro">
+    <h1 id="locationTitle">You're heading to... <p id="outputTitle"></p></h1>
+    <div class="">
 
-          <h2 id="start">Starting your adventure on <span id="outputStart"> </span></h2>
-
-
-          <div class="col">
-
-            <h2 id="end"> Leaving on <span id="outputEnd"> </span></h2>
-          </div>
+      <div class="" id="startAndEnd">
+        <div >
+          <h2 id="start">Starting on <p id="outputStart"> </p></h2>
         </div>
+          <div>
+            <h2 id="end"> Leaving on <p id="outputEnd"> </p></h2>
+          </div>
+
+        
       </div>
+    
     </div>
   </section>
   <!-- (END OF NICOLES PORTION) -->
@@ -114,10 +120,10 @@
   <!-- current look (ADD AT THE TOP AND BOTTOM OF YOUR SECTIONS YOUR NAME COMMENTED OUT TO AVOID GITHUB CONFLICTS )  -->
 
   <section class="budget" id="budget-Page">
-    <div class="row">
-      <div class="col-md-6 mx-auto text-center">
-        <h1 class="budgetTitle">Budget</h1>
-        <br>
+    <div>
+      <div class="text-center">
+        <h1 class="title">Budget</h1>
+        <!-- <br> -->
         <button type="button" id="budgetButton" class="btn btn-info">Budget</button>
       </div>
     </div>
@@ -128,8 +134,8 @@
     <div id="map"></div>
 
     <section class="alejandraIntro" id="alejandra-intro">
-      <h1 class="placesToVisitTitle">Places to Visit</h1>
-      <br>
+      <h1 class="title">Places to Visit</h1>
+      <!-- <br> -->
 
       <div class="centerContent">
         <div class="displayButtons">
@@ -143,7 +149,7 @@
 
 
 
-      <br><br>
+      <!-- <br><br> -->
       <div class=thingsToDoItemized id="thingsToDoItemized"></div>
       </div>
 
@@ -153,17 +159,17 @@
     <!-- Yo's Section -->
     <section class="yoIntro" id="yo-intro">
       <div class="row">
-        <div class="col-md-6 mx-auto text-center">
-          <h1 class="flightTitle">Flights</h1>
-          <br>
+        <div class="text-center">
+          <h1 class="title">Flights</h1>
+          <!-- <br> -->
           <button type="button" id="flightButton" class="btn btn-info">Flights</button>
         </div>
       </div>
       <!-- Line between the two rows -->
       <div class="row">
-        <div class="col-md-6 mx-auto text-center">
-          <h1 class="hotelTitle">Hotels</h1>
-          <br>
+        <div class="text-center">
+          <h1 class="title">Hotels</h1>
+          <!-- <br> -->
           <button type="button" id="hotelButton" class="btn btn-info">Hotels</button>
         </div>
       </div>
@@ -177,9 +183,9 @@
     <div id="map"></div>
 
     <section class="saraIntro" id="sara-intro">
-      <h1 class="restaruantTitle">Restaurants to Visit</h1>
-      <br>
-      <div class="clickButtons">
+      <h1 class="title text-center">Restaurants to Visit</h1>
+      <!-- <br> -->
+      <div class="clickButtons text-center">
         <div>
           <button type="button" id="restaurantsToVisitButton" class="btn btn-info">Restaurants to Visit</button>
           <button type="button" class="btn btn-info" id="goToRestaurants">Restaurants Nearby!</button>
@@ -197,8 +203,8 @@
   src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC0UUODTUY1AMUtNuS4fLtUajZFvBY6K-U&libraries=places&callback=initMap"
   async defer></script>
 
-<script defer src="source/auth.js"></script>
-<script defer src="source/init.js"></script>
+<!-- <script defer src="source/auth.js"></script>
+<script defer src="source/init.js"></script> -->
 
 </html>
 </body>
