@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Flight Information Webpage</title>
+    <link rel="stylesheet" type="text/css" href="./css/flight.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+</head>
+<body>
+
+<div class="modal fade" id="flightInfoModal" tabindex="-1" role="dialog" aria-labelledby="flightInfoModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="flightInfoModalLabel">Your Flight Information</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="flightInfoForm">
+                    <label for="airlineInput">Airline:</label>
+                    <input type="text" id="airlineInput" class="form-control" required>
+                    <label for="flightNumberInput">Flight Number:</label>
+                    <input type="text" id="flightNumberInput" class="form-control" required>
+                    <label for="dateRangeInput">Date of Flights:</label>
+                    <div class="input-group">
+                        <input type="text" id="dateRangeStartInput" class="form-control" readonly>
+                        <div class="input-group-append">
+                            <button id="openDateRangePicker" class="btn btn-outline-secondary" type="button">Select Dates</button>
+                        </div>
+                    </div>
+                </form>
+                <pre id="flightInfo"></pre>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" id="saveFlightInfo" class="btn btn-success">Save</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+<script src="./source/flight.js"></script>
+
+<script>
+    $(document).ready(function() {
+        $('#flightInfoModal').modal('show');
+        
+        $('#saveFlightInfo').click(function() {
+            window.location.href = "navbar.html"; 
+        });
+        
+        // Event listener to redirect to home page on click
+        $(document).click(function() {
+            window.location.href = "navbar.html"; 
+        });
+    });
+</script>
+
+<script defer src = "source/auth.js"></script>
+  <script defer src = "source/init.js"></script>
+
+</body>
+</html>

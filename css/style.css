@@ -1,0 +1,76 @@
+* {
+    box-sizing:border-box;
+    padding: 0px;
+    margin: 0px;
+    font-size: 25px;
+    
+    text-align: center;
+    font-family: 'Inter',sans-serif;
+    font-style: normal;
+    font-weight: 300;
+}
+
+header {
+/* font-size: 8px; */
+
+background-position: 100%;
+float: right;
+margin-right: auto;
+margin-top: 20%;
+
+
+}
+
+.bg {
+    background-image: url(../images/island_vacation.jpg);
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    
+
+    /* makes background image always show from center. */
+    background-position: center;
+    background-size: cover;
+
+    /* background-color: #013A6B; */
+    /* background-image: -webkit-linear-gradient(30deg, #82ede6 50%, #9fd2f9 50%); */
+}
+
+
+.container { 
+   
+    display: flex;
+    justify-content: flex-end;
+
+    margin-right: 0px;
+
+}
+
+.logo{
+    width:auto; 
+    height:200px;
+}
+
+.slogan {
+    font-family: 'Dancing Script', cursive;
+}
+
+.textBody {
+    padding-top: 200px;
+
+    display: flex;
+    justify-content: center;
+    
+}
+
+.textContainer {
+    background-color:white;
+    width: max-content;
+
+
+    padding: 50px;
+
+    border-radius: 20px;
+    /* box-shadow: 10px 10px; */
+    
+}

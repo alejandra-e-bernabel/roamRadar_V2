@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+  <!-- Yo's Code -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <!--end of Yo's section  -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300&family=Raleway:ital@1&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="css/navbar.css" />
+  <title>Navbar Code </title>
+</head>
+
+<body id="navbody">
+  </div>
+  <!-- Please do not edit anything from this section (NICOLES PORTION) -->
+  <nav class="sidenav">
+    <ul>
+      <li><img src="images/ROAMRADAR Logo PNG.png" id="logo" /></li>
+      <li>
+        <a class="nav-link active" aria-current="page" href="navbar.html">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#budgetButton">Budget</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#hotelButton">Hotels</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#flightButton">Flights</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="restaurant.html">Resturants to Visit</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="thingsToDo.html">Places to visit</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="loginPage.html">Log Out </a>
+      </li>
+    </ul>
+    </div>
+  </nav>
+
+
+
+  <section id="nicoles-intro">
+    <h1 id="locationTitle">You're heading to... <span id="outputTitle"> </span>!</h1>
+    <div class="row">
+      <div class="col">
+        <div id="startAndEnd">
+
+          <h2 id="start">Starting your adventure on <span id="outputStart"> </span></h2>
+
+
+          <div class="col">
+
+            <h2 id="end"> Leaving on <span id="outputEnd"> </span></h2>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- (END OF NICOLES PORTION) -->
+
+  <!-- If adding JS to your portion of navbar page please do not touch CSS that is above, it will mess up  -->
+  <!-- current look (ADD AT THE TOP AND BOTTOM OF YOUR SECTIONS YOUR NAME COMMENTED OUT TO AVOID GITHUB CONFLICTS )  -->
+
+  <section class="budget" id="budget-Page">
+    <div class="row">
+      <div class="col-md-6 mx-auto text-center">
+        <h1 class="budgetTitle">Budget</h1>
+        <br>
+        <button type="button" id="budgetButton" class="btn btn-info">Budget</button>
+      </div>
+    </div>
+
+
+    <!-- Alejandra's section for naviagation page-->
+
+    <div id="map"></div>
+
+    <section class="alejandraIntro" id="alejandra-intro">
+      <h1 class="placesToVisitTitle">Places to Visit</h1>
+      <br>
+
+      <div class="centerContent">
+        <div class="displayButtons">
+          <button type="button" id="placesToVisitButton" class="btn btn-info">Places to Visit</button>
+          <button type="button" class="btn btn-info" id="checkItinerary">Check Itinerary</button>
+
+          <!-- <button type="button" class=" centerContent btn btn-info" id="deletePreviousItem">Delete Last Item</button> -->
+          <button type="button" class="btn btn-info" id="clearButton">Clear Itinerary</button>
+        </div>
+      </div>
+
+
+
+      <br><br>
+      <div class=thingsToDoItemized id="thingsToDoItemized"></div>
+      </div>
+
+    </section>
+    <!--END of Alejandra's section-->
+
+    <!-- Yo's Section -->
+    <section class="yoIntro" id="yo-intro">
+      <div class="row">
+        <div class="col-md-6 mx-auto text-center">
+          <h1 class="flightTitle">Flights</h1>
+          <br>
+          <button type="button" id="flightButton" class="btn btn-info">Flights</button>
+        </div>
+      </div>
+      <!-- Line between the two rows -->
+      <div class="row">
+        <div class="col-md-6 mx-auto text-center">
+          <h1 class="hotelTitle">Hotels</h1>
+          <br>
+          <button type="button" id="hotelButton" class="btn btn-info">Hotels</button>
+        </div>
+      </div>
+
+
+    </section>
+    <!-- end of Yo's code -->
+
+    <!-- Start of Sara's section -->
+
+    <div id="map"></div>
+
+    <section class="saraIntro" id="sara-intro">
+      <h1 class="restaruantTitle">Restaurants to Visit</h1>
+      <br>
+      <div class="clickButtons">
+        <div>
+          <button type="button" id="restaurantsToVisitButton" class="btn btn-info">Restaurants to Visit</button>
+          <button type="button" class="btn btn-info" id="goToRestaurants">Restaurants Nearby!</button>
+        </div>
+      </div>
+    </section>
+    <!-- End of Sara's section -->
+
+</body>
+<script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js"
+  integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U=" crossorigin="anonymous"></script>
+<script src="source/navbar.js"></script>
+
+<script
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC0UUODTUY1AMUtNuS4fLtUajZFvBY6K-U&libraries=places&callback=initMap"
+  async defer></script>
+
+<script defer src="source/auth.js"></script>
+<script defer src="source/init.js"></script>
+
+</html>
+</body>
+
+</html>

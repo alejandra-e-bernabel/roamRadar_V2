@@ -1,0 +1,135 @@
+* {
+    font-family: "Inter", sans-serif;
+   
+  }
+  body {
+    background-image: url(../images/beautiful-tropical-beach-sea.jpg);
+    /* background-size: cover; */
+    /* background-repeat: no-repeat; */
+    /* overflow-x: hidden; */
+    background-position: 100% -40px;
+  
+    height: 100%;
+    width: 100%;
+    background-position: 80% 50%;
+  
+  }
+  
+  .header {
+    color:rgb(255, 203, 72);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+    margin-top: 50px;
+    margin-bottom: 30px;
+  }
+  
+  h1 {
+    font-size: 60px;
+    font-family: 'Dancing Script', cursive;
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+  
+  }
+  
+  #floatingInput {
+    /* margin-bottom: 20px;
+    margin-left: 450px; */
+    /* width: 30%; */
+  }
+  
+  
+  #floatingInput::placeholder {
+    color: gray;
+    padding-left: 100px;
+  }
+  
+  #floatingInputGrid {
+    width: 100%;
+    
+  }
+  
+  #floatingInputGrid2 {
+    width: 100%;
+    /* margin-left: 10px; */
+  }
+  .form-floating {
+    color: darkblue;
+    font: bolder;
+  }
+  .form-control:focus {
+    border-color: #e8a31e;
+    box-shadow: 3px 3px 3px #e8a31e;
+  }
+  
+  .button {
+    background-color: lightblue;
+    border-radius: 15px;
+    padding: 15px;
+    /* margin-left: 570px;
+    margin-top: 70px; */
+    font-size: 20px;
+    font-weight: 800;
+  
+    width: 30%;
+  }
+  
+  /* button:hover {
+    background-color: #c69419;
+  } */
+  #warning {
+    color: yellow;
+    text-align: center;
+    margin-top: -215px;
+  }
+  
+  
+  #logo {
+    width:auto; 
+    height:200px
+  
+  }
+  
+  .logoContainer { 
+     
+    display: flex;
+    justify-content: flex-end;
+  
+    margin-right: 0px;
+  
+  }
+  
+  .container {
+    display: flex;
+    justify-content: center;
+  }
+  
+  a {
+    text-decoration: none;
+  }
+  
+  .floatingInputContainer {
+    padding: 20px;
+  
+    display: flex;
+    justify-content: center;
+  
+    flex-wrap: wrap;
+    gap: 20px;
+    
+    width: 100%;
+  
+    
+  }
+  
+  
+  .buttonContainer {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .formContainer {
+    width: 400px;
+  }

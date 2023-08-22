@@ -1,0 +1,176 @@
+/* (START OF NICOLES PORTION) */
+* {
+    font-family: "Inter", sans-serif;
+    
+  }
+  
+  li {
+    list-style: none;
+    font-weight: bolder;
+    text-align: center;
+    margin-left: -40px;
+    margin-bottom: 10px;
+    background-color: lightskyblue;
+  }
+  #logo {
+    width: 100%;
+    margin-bottom: 5px;
+    background-color: lightskyblue;
+  }
+  .sidenav a:hover {
+    color: white;
+    transform: scale(1.2, 1.3);
+  }
+  .sidenav a {
+    color: darkblue;
+    background-color: lightskyblue;
+  }
+  .sidenav {
+    height: 100%;
+    width: 180px;
+    position: fixed;
+    background-color: lightskyblue;
+    overflow-x: hidden;
+    padding-top: 20px;
+    border-radius: 5px;
+    z-index: 1;
+    top: 0;
+    left: 0;
+  }
+  ul{
+    background-color: lightskyblue;
+  }
+  
+  #locationTitle {
+    text-align: center;
+    margin-left: 200px;
+    margin-bottom: 30px;
+    margin-top: 30px;
+    background-color: #87CEFA;
+    width: 80%; 
+    border-radius: 10px;
+    padding: 5px;
+    
+  }
+  
+  #startAndEnd {
+    text-align: center;
+    display:flex;
+  }
+  
+  #start {
+    margin-left: 200px;
+    text-align: center;
+  }
+  #end {
+    margin-left: 100px;
+  }
+  #outputStart,
+  #outputEnd,
+  #outputTitle {
+    color: darkblue;
+    font-weight: bolder;
+  }
+  hr {
+    width: 70%;
+    margin-left: 270px;
+    line-height: 10px;
+  }
+  .placesToVisitTitle{
+    background-color: #87CEFA;
+    width: 95%; 
+    border-radius: 10px;
+    padding: 5px;
+  
+  }
+  .flightTitle
+  {
+  background-color: #87CEFA;
+    width: 165%; 
+    border-radius: 10px;
+    padding: 5px;
+    margin-left: 100px;
+    margin-left: -130px;
+  }
+  .hotelTitle{
+    background-color: #87CEFA;
+    width: 165%; 
+    border-radius: 10px;
+    padding: 5px;
+    margin-left: -130px;
+  }
+  .restaruantTitle{
+    background-color: #87CEFA;
+    width: 80%; 
+    border-radius: 10px;
+    padding: 5px;
+    text-align: center;
+    margin-left: 200px;
+    margin-top: 20px;
+  }
+  .budgetTitle{
+    background-color: #87CEFA;
+    width: 165%; 
+    border-radius: 10px;
+    padding: 5px;
+    margin-left: -130px;
+  }
+  #budgetButton{
+    margin-left: 150px;
+    margin-bottom: 20px;
+  }
+  #flightButton, #hotelButton{
+    margin-left: 150px;
+    margin-bottom: 20px;
+  }
+  #goToRestaurants{
+    margin-left: 450px;
+    margin-bottom: 20px;
+    color: white;
+  }
+  
+  /* (END OF NICOLES PORTION) */
+  /* If adding CSS to your portion of navbar please do not touch CSS that is above, it will mess up current look  */
+  
+  /* Beginning of Alejandra's portion */
+  
+  .alejandraIntro {
+    margin-left: 200px;
+    text-align: center;
+  }
+  
+  .thingsToDoItemized {
+    background-color: aliceblue;
+    margin-right: 50px;
+  
+  }
+  
+  .placeToVisitItem {
+    background-color: #87CEFA;
+  }
+  
+  .noColor {
+    background-color: white;
+  }
+  
+  .displayButtons {
+  
+    /* max-width: 1000px; */
+    
+  }
+  
+  .centerContent {
+    /* margin-left: 200px; */
+    display: flex;
+    justify-content: center;
+  }
+  
+  
+  /* End of Alejandra's Portion */
+  
+  .yoIntro {
+   
+    text-align: center;
+  }
+  
+  

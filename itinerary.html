@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Budget Your Next Trip</title>
+    <link rel="stylesheet" href="css/navbar.css" />
+    <link rel="stylesheet" href="./css/itinerary.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    
+</head>
+
+<body>
+    <nav class="sidenav">
+        <ul>
+          <li><img src="images/ROAMRADAR Logo PNG.png" id="logo"/></li>
+          <li>
+          <a class="nav-link active" aria-current="page" href="navbar.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#budgetButton">Budget</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#hotelButton">Hotels</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#flightButton">Flights</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="restaurant.html">Resturants to Visit</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="thingsToDo.html">Places to visit</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="loginPage.html">Log Out </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+<section class="wrapper">
+    <section class="budget-wrapper">
+        <div class="budget-container">
+            <div class="budget-header">
+                <h1>Budgeting</h1>
+
+                <div class="side-bar-budget button">
+                    <button id="add-expense" class="add-expense button" data-toggle="modal" data-target="#add-expense-details"> + Add Expense</button>
+                    <button class="add-friend button" id="add-friend" data-toggle="modal" data-target="#addTripmate">Add
+                        tripmate</button>
+                </div>
+            </div>
+        </div>
+
+  
+  
+  <div class="modal fade" id="add-expense-details" tabindex="-1" aria-labelledby="addExpenseLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="addExpenseLabel">Add your expenses</h5>
+          <button type="button" class="close" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <label for="expense-options">Choose Expense</label>
+            <select name="expense" id="expense-list-name" required>
+                <option value="" selected hidden>--Select Expense--</option>
+                <option value="activities">Activities</option>
+                <option value="food">Food</option>
+                <option value="drinks">Drinks</option>
+                <option value="flights">Flights</option>
+                <option value="transportation">Transportation</option>
+                <option value="hotel">Hotel</option>
+                <option value="attractions">Attractions</option>
+                <option value="gas">Gas</option>
+            </select>
+            <label id="select-result" class="alert-option alert-select">Invalid.Select option</label>
+            <br>
+            <br>
+            <div class="amount-description">
+                <p><label for="budget-comments">Budget comments:</label></p>
+                <p><label class="optional-comment" for="budget-comments">(optional)</label></p>
+                <textarea id="budget-comments" name="amout-description" rows="4" cols="50"></textarea>
+                
+                <button class="save-expense-details" id="save">Save</button>
+                <br>
+                <br>
+                 <h6>Amount:</h6> 
+                <input type="number" class="form-control" id="budget-dollar-amount"
+                aria-label="Amount-t-dollar" placeholder="$" required>
+                <label id="expense-amount-result" class="alert-option alert-amount">Invalid.Enter Expense amount.</label>
+
+        </div>
+
+        </div>
+        <div class="modal-footer">
+        <button id="save-expense-details" type="button" class="btn btn-primary">Save</button>
+        </div>
+      </div>
+    </div>
+  </div>
+          
+          
+          
+
+        <div class="trip-name">
+            <h5>Trip name:</h5>
+            <input id="user-place-input" name="place" type="text" placeholder="Where are you going?">
+        </div>
+
+
+        <div class="budget-main-wrapper">
+            <div class="budget-amount">
+                <h2 id="total-expenses" class="expense-total">$0.00 <span></span></h2>
+                <p id="budget-track" class="budgets-amount">Budget:$</p>
+            </div>
+
+            <div class="progress">
+                <div class="progress-bar" id="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+                </div>
+            </div>
+
+
+            <div class="expense-buttons">
+                <button id="edit-budget button" class="edit-budget button" data-toggle="modal"
+                    data-target="#edit-budget-modal">Edit Budget</button>
+                <button class="budget-notes button" id="budget-notes">Budget notes</button>
+            </div>
+
+
+            
+            <div class="modal fade" id="addTripmate" tabindex="-1" aria-labelledby="tripmateLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="tripmateLabel">Add Tripmate</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="link-box">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    class="bi bi-link-45deg" viewBox="0 0 16 16">
+                                    <path
+                                        d="M4.715 6.542 3.343 7.914a3 3 0 1 0 4.243 4.243l1.828-1.829A3 3 0 0 0 8.586 5.5L8 6.086a1.002 1.002 0 0 0-.154.199 2 2 0 0 1 .861 3.337L6.88 11.45a2 2 0 1 1-2.83-2.83l.793-.792a4.018 4.018 0 0 1-.128-1.287z" />
+                                    <path
+                                        d="M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 1 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 1 0-4.243-4.243L6.586 4.672z" />
+                                </svg>
+                                <span>https://github.com/Saragar710/Travel-Itinerary</span>
+                                <button class="copy-link" id="copy-invite-link" onclick="copyText()">Copy link</button>
+                            </div>
+                            <div class="invite-link-text">
+                                <div class="invite-text">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                        class="bi bi-envelope" viewBox="0 0 16 16">
+                                        <path
+                                            d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4Zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2Zm13 2.383-4.708 2.825L15 11.105V5.383Zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741ZM1 11.105l4.708-2.897L1 5.383v5.722Z" />
+                                    </svg>
+                                    <span>Invite by email or user</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer"></div>
+                    </div>
+                </div>
+            </div>
+
+            
+
+
+            <div class="modal fade" id="edit-budget-modal" tabindex="-1" aria-labelledby="editBudgetLabel"
+                aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="editBudgetLabel">Set Budget</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">$</span>
+                                </div>
+                                <input type="text" id="budgetdollar-amount">
+                                <div class="input-group-append">
+                                    <span class="input-group-text">.00</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+
+                            <button type="button" id="save-budget-amount" class="btn btn-primary budgetSaveButton">Save</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+           
+        <div class="expense-list">
+            <div class="expense-detail-position">
+                <button id="expense-summary-list" class="accordion expense-wdth">Expenses</button>
+                <div id="expense-details" class="panel expense-wdth">
+                    <div id="add-expense-js" class="expense-headers">
+                        <h6>Description</h6>
+                        <h6>Amount</h6>
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                    Sort
+                </button>
+                <ul class="dropdown-menu">
+                    <li><button class="dropdown-item" type="button">Date</button></li>
+                    <li><button class="dropdown-item" type="button">Amount high-low</button></li>
+                    <li><button class="dropdown-item" type="button">Amount low-high</button></li>
+                </ul>
+            </div>
+        </div>
+
+
+    </div>
+
+    
+    </section>
+    
+    </section>
+    
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://kit.fontawesome.com/56f757dad7.js" crossorigin="anonymous"></script>
+    <script src="./itinerary.js"></script>
+
+    <script defer src = "source/auth.js"></script>
+    <script defer src = "source/init.js"></script>
+    
+</body>
+
+</html>
