@@ -1,7 +1,7 @@
 # roamRadar_V2
 A travel itinerary storage app. Updated from version without mobile use.
 
-# Disclaimer 
+# Previous Versions 
 This project was originally made as part of a team over a period of two weeks. After the team finished the project, I decided I wanted to update it to be more mobile-friendly and finish polishing css and other functionalities. The original team was composed of:
 
 https://github.com/Saragar710 (Sara)
