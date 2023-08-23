@@ -25,6 +25,7 @@
 </head>
 
 <body id="navbody">
+
   <!-- Please do not edit anything from this section (NICOLES PORTION) -->
   
   
@@ -67,7 +68,7 @@
 
 </nav>
 
-  <nav class="sidenav">
+  <nav class="sidenav hidden">
     <ul>
       <li><img src="images/ROAMRADAR Logo (transparent background) (4).jpg" id="logo" /></li>
       <li>
@@ -114,6 +115,13 @@
     
     </div>
   </section>
+
+<!-- 
+  
+  <div class="headerImageContainer">
+    <img class= headerImage src="/images/gazebosOverWater.jpg">
+  </div> -->
+
   <!-- (END OF NICOLES PORTION) -->
 
   <!-- If adding JS to your portion of navbar page please do not touch CSS that is above, it will mess up  -->
@@ -124,6 +132,14 @@
       <div class="text-center">
         <h1 class="title">Budget</h1>
         <!-- <br> -->
+
+        <!-- budget code -->
+
+
+
+
+        <!-- end of budget code -->
+
         <button type="button" id="budgetButton" class="btn btn-info">Budget</button>
       </div>
     </div>
@@ -162,7 +178,9 @@
         <div class="text-center">
           <h1 class="title">Flights</h1>
           <!-- <br> -->
-          <button type="button" id="flightButton" class="btn btn-info">Flights</button>
+          <p>You haven't added your flights yet.</p>
+          
+          <button type="button" id="flightButton" class="btn btn-info">Enter your flight info</button>
         </div>
       </div>
       <!-- Line between the two rows -->
@@ -170,7 +188,9 @@
         <div class="text-center">
           <h1 class="title">Hotels</h1>
           <!-- <br> -->
-          <button type="button" id="hotelButton" class="btn btn-info">Hotels</button>
+          <p>It looks like you haven't added a Hotel.</p>
+          <p>Where are you staying?</p>
+          <button type="button" id="hotelButton" class="btn btn-info">Enter your hotel info</button>
         </div>
       </div>
 
@@ -188,6 +208,7 @@
       <div class="clickButtons text-center">
         <div>
           <button type="button" id="restaurantsToVisitButton" class="btn btn-info">Restaurants to Visit</button>
+          <p>It looks like you haven't added any restaurants yet. </p><p>Click below to pick some destinations!</p>
           <button type="button" class="btn btn-info" id="goToRestaurants">Restaurants Nearby!</button>
         </div>
       </div>
