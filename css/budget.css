@@ -1,7 +1,9 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: "Inter", sans-serif;    
     margin: 0;
     padding: 0;
+
+    text-align: center;
 }
 
 .header {
@@ -15,31 +17,33 @@ body {
 }
 
 #budgetSection {
-    text-align: center;
+    /* text-align: center; */
     margin: 20px;
 }
 
 #bar {
     width: 0%;
-    height: 40px;
-    background-color: rgb(177, 255, 177);
+    height: 33px;
+    background-color: #31D2F2;
     /* margin: 10px 0; */
 
-    padding: 0px;
+    /* padding: 0px; */
     border-radius: 5px;
 
-    
-
-    
+    position: relative;
+    z-index: 1;    
 }
 
 .barOutline {
-    width:500px;
+    width:507px;
     border-radius: 10px;
     border-style: solid;
     /* border-width: 5px; */
 
     height: 40px;
+
+    position: relative;
+    z-index: 1;
     
 
 }
@@ -51,6 +55,7 @@ body {
 
 #expenseList {
     margin: 20px;
+
 }
 
 .modal {
@@ -95,3 +100,81 @@ body {
 #clearBudgetButton {
     margin: 10px;
     }
+
+.budgetHeader {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    background-color:rgb(198, 218, 255);
+    
+}
+
+.budgetTitle {
+    font-family:'Dancing Script', cursive;
+    font-weight: 700;
+    font-size: xxx-large;
+}
+
+.currBudget {
+    padding: 10px;
+
+    font-style: italic;
+
+    border-radius: 10px;
+}
+
+
+.popup {
+    display: none;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+
+  }
+  
+  .popup-content {
+    position: absolute;
+    width: 300px;
+    height: 150px;
+    background-color: white;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    box-sizing: border-box;
+
+    border-radius: 10px;
+
+  }
+
+ .budgetType {
+    background-color: #31D2F2;
+    padding:10px;
+ }
+
+ .budgetAmount {
+    background-color: lightblue;
+    padding: 10px;
+ }
+
+ .expenseInfo { 
+    display: flex;
+
+ }
+
+ .expenseItem {
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+
+ }
+
+ .type,
+ .amount {
+    font-size: larger;
+    font-weight: bold;
+ }

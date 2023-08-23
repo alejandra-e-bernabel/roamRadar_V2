@@ -13,6 +13,7 @@ const visualTracker = document.getElementById('visualTracker');
 let budgetAmount = localStorage.getItem('budgetAmount');
 if (budgetAmount) {
     budgetAmountInput.value = budgetAmount;
+    document.getElementById("currBudgetText").innerHTML = "Current budget: $" + budgetAmount; 
 }
 
 // Check if expenses exist in local storage
@@ -51,10 +52,36 @@ function saveExpense() {
     updateNumericTracker();
 }
 
+// function updateBudget() {
+//     budgetAmount = budgetAmountInput.value;
+//     localStorage.setItem('budgetAmount', budgetAmount);
+//     updateProgressBar();
+// }
+
+// function populateExpenses() {
+//     expenseList.innerHTML = '';
+
+//     for (let i = 0; i <expenses.length; i++) {
+//         const expense = expenses[i];
+
+//         const expenseItem = document.createElement('div');
+//         expenseItem.classList.add('expense-item');
+//         expenseItem.innerHTML = "<div>Type: " + expense.type + "</div><div>Amount: $"+ expense.amount + "</div>";
+
+//         expenseList.appendChild(expenseItem);
+//     }
+// }
+
 function updateBudget() {
     budgetAmount = budgetAmountInput.value;
     localStorage.setItem('budgetAmount', budgetAmount);
     updateProgressBar();
+
+    if (budgetAmount < 0) {
+        document.getElementById("currBudgetText").innerHTML = "Budget has not been set"; 
+    } else {
+        document.getElementById("currBudgetText").innerHTML = "Current budget: $" + budgetAmount; 
+    }
 }
 
 function populateExpenses() {
@@ -64,11 +91,32 @@ function populateExpenses() {
         const expense = expenses[i];
 
         const expenseItem = document.createElement('div');
-        expenseItem.classList.add('expense-item');
-        expenseItem.innerHTML = "<div>Type: " + expense.type + "</div><div>Amount: "+ expense.amount + "</div>";
+        // expenseItem.classList.add('expense-item');
+        
+
+        const expenseInfo = document.createElement('div');
+        expenseInfo.classList.add("expenseItem");
+        expenseInfo.innerHTML = "<div class= expenseInfo><div class= budgetType><span class= type>Type: </span>" + expense.type + "</div><div class= budgetAmount><span class= type>Amount:</span> $" + expense.amount + "</div></div>";
+        expenseItem.appendChild(expenseInfo);
+
+        const deleteButton = document.createElement('button');
+        deleteButton.innerHTML = 'Delete expense';
+        deleteButton.classList.add("btn");
+        deleteButton.classList.add("btn-warning");
+        deleteButton.addEventListener('click', function() {
+            deleteExpense(i);
+            updateProgressBar();
+            updateNumericTracker();
+        });
+        expenseInfo.appendChild(deleteButton);
 
         expenseList.appendChild(expenseItem);
     }
+}
+
+function deleteExpense(index) {
+    expenses.splice(index, 1);
+    populateExpenses();
 }
 
 function updateProgressBar() {
@@ -79,12 +127,12 @@ function updateProgressBar() {
     if (filledPercentage >= 100) {
         bar.style.backgroundColor = '#C51F3B';
     } else {
-        bar.style.backgroundColor = '#2CAF1E';
+        bar.style.backgroundColor = '#31D2F2';
     }
 }
 
 function updateNumericTracker() {
-    const spentAmount = expenses.reduce((total, expense) => total + parseInt(expense.amount), 0);
+    const spentAmount = expenses.reduce((total, expense) => total + parseFloat(expense.amount), 0);
     numericTracker.innerHTML = "Spent: $" + spentAmount;
 
     if (spentAmount >= parseInt(budgetAmount)) {
@@ -106,6 +154,8 @@ function clearBudget() {
     localStorage.removeItem('budgetAmount');
     localStorage.removeItem('expenses'); 
     budgetAmountInput.value = ''; 
+    document.getElementById("currBudgetText").innerHTML = "Current budget: $0"; 
+
     
     expenses = []; 
     
@@ -114,7 +164,19 @@ function clearBudget() {
     updateNumericTracker(); 
 }
 
+
+
+function openPopup() {
+    document.getElementById("popup").style.display = "block";
+  }
+  
+  function closePopup() {
+    document.getElementById("popup").style.display = "none";
+  }
+
 // Initial population
 populateExpenses();
 updateProgressBar();
 updateNumericTracker();
+
+
