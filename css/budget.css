@@ -1,13 +1,13 @@
+*{
+    font-family: 'Montserrat', sans-serif;
+    
+}
 body {
-    font-family: "Inter", sans-serif;    
+    /* font-family: "Inter", sans-serif;     */
     margin: 0;
     padding: 0;
 
-    text-align: center;
-}
-
-.header {
-    text-align: center;
+    /* text-align: center; */
 }
 
 .button {
@@ -23,15 +23,16 @@ body {
 
 #bar {
     width: 0%;
-    height: 33px;
+    height: 99.5%;
     background-color: #31D2F2;
     /* margin: 10px 0; */
 
     /* padding: 0px; */
-    border-radius: 5px;
+    border-radius: 8px;
+    8
 
-    position: relative;
-    z-index: 1;    
+    /* position: relative; */
+    /* z-index: 1;     */
 }
 
 .barOutline {
@@ -42,22 +43,49 @@ body {
 
     height: 40px;
 
-    position: relative;
-    z-index: 1;
-    
+    /* position: relative;
+    z-index: 1; */
 
 }
 
-#trackers {
+.trackerContainer {
     display: flex;
-    justify-content: space-between;
+    /* justify-content: space-around; */
+
+    gap:30px;
+    justify-content: center;
+    align-items: center;
+}
+
+#numericTracker {
+    font-size: x-large;
 }
 
 #expenseList {
     margin: 20px;
 
+    padding:20px;
+    background-color:  rgba(160, 209, 255, 0.4);
+
+    border-radius: 10px;
+
+    display: flex;
+    flex-direction: column;
+
+    font-size: large;
 }
 
+.itemizedExpenses {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 5px;
+}
+
+#expensesButton {
+    float: right;
+}
 .modal {
     display: none;
     position: fixed;
@@ -67,8 +95,15 @@ body {
     width: 100%;
     height: 100%;
     overflow: auto;
+
+
     background-color: rgba(0, 0, 0, 0.4);
 }
+
+/* .seeExpensesContainer {
+    display: flex;
+    justify-content: center;    
+} */
 
 .modal-content {
     background-color: #fefefe;
@@ -76,12 +111,16 @@ body {
     padding: 20px;
     border: 1px solid #888;
     width: 50%;
+
+
 }
 
 .close {
-    float: right;
+    text-align: right;
+    padding-right: 15px;
     font-weight: bold;
     cursor: pointer;
+    
 }
 
 .close:hover,
@@ -101,9 +140,18 @@ body {
     margin: 10px;
     }
 
+.budgetButtonContainer {
+    display: flex;
+    justify-content: center;
+
+    /* background-color: hotpink; */
+}
+
 .budgetHeader {
     display: flex;
-    justify-content: space-around;
+    /* justify-content: space-around; */
+    gap: 30px;
+    justify-content: center;
     align-items: center;
 
     background-color:rgb(198, 218, 255);
@@ -128,16 +176,19 @@ body {
 .popup {
     display: none;
     position: fixed;
+    z-index: 1;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
+    overflow: auto;
 
+
+    background-color: rgba(0, 0, 0, 0.4);
   }
   
   .popup-content {
-    position: absolute;
+    /* position: absolute;
     width: 300px;
     height: 150px;
     background-color: white;
@@ -145,36 +196,50 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
     padding: 20px;
-    box-sizing: border-box;
+    box-sizing: border-box; */
 
-    border-radius: 10px;
+    border-radius: 5px;
+
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 50%;
 
   }
 
  .budgetType {
-    background-color: #31D2F2;
+    /* background-color: #31D2F2; */
     padding:10px;
  }
 
  .budgetAmount {
-    background-color: lightblue;
+    /* background-color: lightblue; */
     padding: 10px;
+
+    
  }
 
  .expenseInfo { 
     display: flex;
+    flex-direction: column;
 
  }
 
  .expenseItem {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     padding: 10px;
+
+    gap: 30px;
 
  }
 
  .type,
  .amount {
     font-size: larger;
+    
     font-weight: bold;
  }
+ 
+ 

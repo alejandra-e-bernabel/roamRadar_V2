@@ -110,9 +110,11 @@ function populateExpenses() {
         expenseItem.appendChild(expenseInfo);
 
         const deleteButton = document.createElement('button');
-        deleteButton.innerHTML = 'Delete expense';
+        deleteButton.innerHTML = '<b>Delete expense</b>';
         deleteButton.classList.add("btn");
         deleteButton.classList.add("btn-warning");
+        // deleteButton.classList.add("deleteButton");
+
         deleteButton.addEventListener('click', function() {
             deleteExpense(i);
             updateProgressBar();
@@ -143,7 +145,7 @@ function updateProgressBar() {
 
 function updateNumericTracker() {
     const spentAmount = expenses.reduce((total, expense) => total + parseFloat(expense.amount), 0);
-    numericTracker.innerHTML = "Spent: $" + spentAmount.toFixed(2);
+    numericTracker.innerHTML = "<b>Total spent:</b> $" + spentAmount.toFixed(2);
 
     if (spentAmount >= parseFloat(budgetAmount).toFixed(2)) {
         numericTracker.style.color = 'red';
@@ -183,6 +185,16 @@ function openPopup() {
   function closePopup() {
     document.getElementById("popup").style.display = "none";
   }
+
+  function toggleExpenses() {
+    var expenseList = document.getElementById("expenseList");
+    if (expenseList.style.display === "none") {
+        
+        expenseList.style.display = "flex";
+    } else {
+        expenseList.style.display = "none";
+    }
+}
 
 // Initial population
 populateExpenses();
