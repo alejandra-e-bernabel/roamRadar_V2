@@ -94,6 +94,27 @@ function updateNumericTracker() {
     }
 }
 
+// Get the clear budget button element
+const clearBudgetButton = document.getElementById('clearBudgetButton');
+
+// Add event listener for clear budget button click 
+
+clearBudgetButton.addEventListener('click', clearBudget);
+
+// Function to clear the budget 
+function clearBudget() {
+    localStorage.removeItem('budgetAmount');
+    localStorage.removeItem('expenses'); 
+    budgetAmountInput.value = ''; 
+    
+    expenses = []; 
+    
+    populateExpenses(); 
+    updateProgressBar(); 
+    updateNumericTracker(); 
+}
+
+
 // Initial population
 populateExpenses();
 updateProgressBar();
