@@ -13,7 +13,11 @@ const visualTracker = document.getElementById('visualTracker');
 let budgetAmount = localStorage.getItem('budgetAmount');
 if (budgetAmount) {
     budgetAmountInput.value = budgetAmount;
-    document.getElementById("currBudgetText").innerHTML = "Current budget: $" + budgetAmount; 
+    let setAmount = parseFloat(budgetAmount).toFixed(2);
+    console.log("setAmount is "+ setAmount + "\nbudgetAmoutn is " + budgetAmount);
+
+    document.getElementById("currBudgetText").innerHTML = "Current budget: $" + setAmount;
+    // document.getElementById("currBudgetText").innerHTML = "Current budget: $" + budgetAmount; 
 }
 
 // Check if expenses exist in local storage
@@ -80,7 +84,11 @@ function updateBudget() {
     if (budgetAmount < 0) {
         document.getElementById("currBudgetText").innerHTML = "Budget has not been set"; 
     } else {
-        document.getElementById("currBudgetText").innerHTML = "Current budget: $" + budgetAmount; 
+        let setAmount = parseFloat(budgetAmount).toFixed(2);
+
+        console.log("setAmount is "+ setAmount + "budgetAmoutn is " + budgetAmount);
+
+        document.getElementById("currBudgetText").innerHTML = "Current budget: $" + setAmount; 
     }
 }
 
@@ -96,7 +104,9 @@ function populateExpenses() {
 
         const expenseInfo = document.createElement('div');
         expenseInfo.classList.add("expenseItem");
-        expenseInfo.innerHTML = "<div class= expenseInfo><div class= budgetType><span class= type>Type: </span>" + expense.type + "</div><div class= budgetAmount><span class= type>Amount:</span> $" + expense.amount + "</div></div>";
+
+        let writtenAmount = parseFloat(expense.amount).toFixed(2);
+        expenseInfo.innerHTML = "<div class= expenseInfo><div class= budgetType><span class= type>Type: </span>" + expense.type + "</div><div class= budgetAmount><span class= type>Amount:</span> $" + writtenAmount + "</div></div>";
         expenseItem.appendChild(expenseInfo);
 
         const deleteButton = document.createElement('button');
@@ -120,7 +130,7 @@ function deleteExpense(index) {
 }
 
 function updateProgressBar() {
-    const filledPercentage = (expenses.reduce((total, expense) => total + parseInt(expense.amount), 0) / parseInt(budgetAmount)) * 100;
+    const filledPercentage = (expenses.reduce((total, expense) => total + parseInt(expense.amount), 0) / parseFloat(budgetAmount).toFixed(2)) * 100;
     const progressBarWidth = Math.min((filledPercentage * 5), 500); // Limiting width to maximum 200px
     bar.style.width = progressBarWidth + 'px';
 
@@ -133,9 +143,9 @@ function updateProgressBar() {
 
 function updateNumericTracker() {
     const spentAmount = expenses.reduce((total, expense) => total + parseFloat(expense.amount), 0);
-    numericTracker.innerHTML = "Spent: $" + spentAmount;
+    numericTracker.innerHTML = "Spent: $" + spentAmount.toFixed(2);
 
-    if (spentAmount >= parseInt(budgetAmount)) {
+    if (spentAmount >= parseFloat(budgetAmount).toFixed(2)) {
         numericTracker.style.color = 'red';
     } else {
         numericTracker.style.color = 'black';

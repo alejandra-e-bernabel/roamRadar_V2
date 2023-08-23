@@ -25,9 +25,7 @@
     </header>
 
     <div id="budgetSection">
-        <!-- <label for="budgetAmount">Budgeted Amount:</label>
-        <input type="number" min= "0.00" step="0.01" id="budgetAmount" placeholder="Enter budgeted amount" /> -->
-
+       
         <div class="budgetButtonConatiner">
             <button class = "btn btn-info" onclick="openPopup()">Edit Budget</button>
             <button class="button btn btn-info" id="addExpenseButton">+ Add expense</button>
@@ -38,7 +36,7 @@
         <div id="popup" class="popup">
             <div class="popup-content">
                 <label for="budgetAmount">Budgeted Amount:</label>
-                <input class= "form-group" type="number" min="0.00" step="0.01" id="budgetAmount" placeholder="Enter budgeted amount" />
+                <input class="form-control" type="number" min="0.00" step="0.01" pattern="^\d*(\.\d{0,2})?$" id="budgetAmount" placeholder="Enter budgeted amount" />
                 <button class="btn btn-info"onclick="closePopup()">Save</button>
             </div>
         </div>
