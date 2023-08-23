@@ -73,13 +73,13 @@ function populateExpenses() {
 
 function updateProgressBar() {
     const filledPercentage = (expenses.reduce((total, expense) => total + parseInt(expense.amount), 0) / parseInt(budgetAmount)) * 100;
-    const progressBarWidth = Math.min((filledPercentage * 2), 200); // Limiting width to maximum 200px
+    const progressBarWidth = Math.min((filledPercentage * 5), 500); // Limiting width to maximum 200px
     bar.style.width = progressBarWidth + 'px';
 
     if (filledPercentage >= 100) {
-        bar.style.backgroundColor = 'red';
+        bar.style.backgroundColor = '#C51F3B';
     } else {
-        bar.style.backgroundColor = 'green';
+        bar.style.backgroundColor = '#2CAF1E';
     }
 }
 
@@ -113,7 +113,6 @@ function clearBudget() {
     updateProgressBar(); 
     updateNumericTracker(); 
 }
-
 
 // Initial population
 populateExpenses();
