@@ -1,4 +1,4 @@
-// Get elements
+// console.log ("Entered budget.js");
 const addExpenseButton = document.getElementById('addExpenseButton');
 const expenseModal = document.getElementById('expenseModal');
 const closeModal = document.getElementsByClassName('close')[0];
@@ -14,7 +14,7 @@ let budgetAmount = localStorage.getItem('budgetAmount');
 if (budgetAmount) {
     budgetAmountInput.value = budgetAmount;
     let setAmount = parseFloat(budgetAmount).toFixed(2);
-    console.log("setAmount is "+ setAmount + "\nbudgetAmoutn is " + budgetAmount);
+    // console.log("setAmount is "+ setAmount + "\nbudgetAmoutn is " + budgetAmount);
 
     document.getElementById("currBudgetText").innerHTML = "Current budget: $" + setAmount;
     // document.getElementById("currBudgetText").innerHTML = "Current budget: $" + budgetAmount; 
@@ -128,12 +128,17 @@ function populateExpenses() {
 
 function deleteExpense(index) {
     expenses.splice(index, 1);
-    populateExpenses();
+    localStorage.setItem('expenses', JSON.stringify(expenses));
+    if (expenses.length == 0) {
+        expenseList.innerHTML = "<b>No expenses added.</b>"
+    } else  {
+        populateExpenses();
+    }
 }
 
 function updateProgressBar() {
     const filledPercentage = (expenses.reduce((total, expense) => total + parseInt(expense.amount), 0) / parseFloat(budgetAmount).toFixed(2)) * 100;
-    const progressBarWidth = Math.min((filledPercentage * 5), 500); // Limiting width to maximum 200px
+    const progressBarWidth = Math.min((filledPercentage * 4), 400); // Limiting width to maximum 200px
     bar.style.width = progressBarWidth + 'px';
 
     if (filledPercentage >= 100) {
@@ -163,15 +168,20 @@ clearBudgetButton.addEventListener('click', clearBudget);
 
 // Function to clear the budget 
 function clearBudget() {
-    localStorage.removeItem('budgetAmount');
+    // localStorage.removeItem('budgetAmount');
     localStorage.removeItem('expenses'); 
     budgetAmountInput.value = ''; 
-    document.getElementById("currBudgetText").innerHTML = "Current budget: $0"; 
+    // document.getElementById("currBudgetText").innerHTML = "Current budget: $0"; 
 
     
     expenses = []; 
     
-    populateExpenses(); 
+    if (expenses.length == 0) {
+        expenseList.innerHTML = "<b>No expenses added.</b>"
+    } else  {
+        populateExpenses();
+    }    
+
     updateProgressBar(); 
     updateNumericTracker(); 
 }
@@ -189,8 +199,12 @@ function openPopup() {
   function toggleExpenses() {
     var expenseList = document.getElementById("expenseList");
     if (expenseList.style.display === "none") {
-        
+        if (expenses.length ==0) {
+            expenseList.innerHTML = "<b>No expenses added.</b>"
+            expenseList.style.display = "flex";
+        }        else {
         expenseList.style.display = "flex";
+        }
     } else {
         expenseList.style.display = "none";
     }
