@@ -37,6 +37,11 @@ body {
     background-color: lightblue;
     margin: 10px;
     border-radius: 5px;
+
+    padding: 5px;
+
+    display: flexbox;
+    justify-content: center;
 }
 
 .hotelsButtonContainer {
@@ -45,13 +50,17 @@ body {
 }
 
 .hotelNameInput {
-    margin: 10px;
+    /* margin: 10px; */
 }
 
 .addressInput {
+    /* margin: 10px; */
+}
+
+.additionalNotesContainer {
     margin: 10px;
 }
 
-.additionalNotesInput {
-    
+.nameAndAddress {
+    margin: 10px;
 }

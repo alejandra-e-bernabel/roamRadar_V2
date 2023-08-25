@@ -9,34 +9,58 @@ function createSections() {
     for (let i = 0; i < numNights; i++) {
         let section = document.createElement('section');
 
+        //hotel name
+        let form = document.createElement('form');
+        form.classList.add('nameAndAddress');
+
+        let row = document.createElement('div');
+        row.classList.add('row');
+
+        let col1 = document.createElement('div');
+        col1.classList.add('col');
         let hotelNameLabel = document.createElement('label');
-        hotelNameLabel.textContent = 'Hotel name:';
+        hotelNameLabel.innerHTML = '<b>Hotel name:</b>';
         let hotelNameInput = document.createElement('input');
         hotelNameInput.type = 'text';
         hotelNameInput.name = 'hotelName';
-
-        hotelNameInput.classList.add ("form-inline");
+        hotelNameInput.classList.add ("form-control");
+        
         hotelNameInput.classList.add ("hotelNameInput");
-
         hotelNameInput.placeholder = 'Enter hotel name';
-        section.appendChild(hotelNameLabel);
-        section.appendChild(hotelNameInput);
+        col1.appendChild(hotelNameLabel);
+        col1.appendChild(hotelNameInput);
+        hotelNameInput.placeholder = 'Enter hotel name';
+        col1.appendChild(hotelNameLabel);
+        col1.appendChild(hotelNameInput);
 
+
+        // hotel address
+        let col2 = document.createElement('div');
+        col2.classList.add('col');
         let addressLabel = document.createElement('label');
-        addressLabel.textContent = 'Address:';
+        addressLabel.innerHTML = '<b>Address:</b>';
         let addressInput = document.createElement('input');
         addressInput.type = 'text';
         addressInput.name = 'address';
 
-        addressInput.classList.add ("form-inline");
+        addressInput.classList.add ("form-control");
         addressInput.classList.add ("addressInput");
 
         addressInput.placeholder = 'Enter hotel address';
-        section.appendChild(addressLabel);
-        section.appendChild(addressInput);
+        col2.appendChild(addressLabel);
+        col2.appendChild(addressInput);
+
+        row.appendChild(col1);
+        row.appendChild(col2);
+        form.appendChild(row);
+        section.appendChild(form);
+
+        //additional notes
+        let additionalNotesContainer = document.createElement('div');
+        additionalNotesContainer.classList.add("additionalNotesContainer")
 
         let additionalNotesLabel = document.createElement('label');
-        additionalNotesLabel.textContent = 'Additional notes:';
+        additionalNotesLabel.innerHTML = '<b>Additional notes:</b>';
         let additionalNotesInput = document.createElement('textarea');
         additionalNotesInput.name = 'additionalNotes';
 
@@ -45,8 +69,10 @@ function createSections() {
 
 
         additionalNotesInput.placeholder = 'Enter additional notes';
-        section.appendChild(additionalNotesLabel);
-        section.appendChild(additionalNotesInput);
+
+        section.appendChild(additionalNotesContainer)
+        additionalNotesContainer.appendChild(additionalNotesLabel);
+        additionalNotesContainer.appendChild(additionalNotesInput);
 
         sectionsContainer.appendChild(section);
     }
