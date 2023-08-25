@@ -8,6 +8,7 @@ function createSections() {
 
     for (let i = 0; i < numNights; i++) {
         let section = document.createElement('section');
+        section.classList.add('lodgingSection');
 
         //hotel name
         let form = document.createElement('form');
@@ -125,5 +126,9 @@ function saveSections() {
 function clearSections() {
     localStorage.removeItem('itinerary');
     document.getElementById('numNights').value = '';
-    document.getElementById('sectionsContainer').innerHTML = "<b>No lodgings have been entered yet.</b>";
+
+    sectionsContainer = document.getElementById('sectionsContainer')
+    sectionsContainer.innerHTML = "<b>No lodgings have been entered yet.</b>";
+    // sectionsContainer.classList.add("centerText");
+
 }

@@ -27,17 +27,27 @@
   <section class="hotelSection">
     <h1 class="hotelTitle">Lodging</h1>
 
-    <label for="numNights">How many nights are you staying?</label>
-    <input class= form-inline type="number" id="numNights" min="1" max="10">
-    <button class="btn btn-info" onclick="createSections()">Enter Hotel Information</button>
-<br><br>
+    <div class="numNightsContainer">
+      <div class="numNights">
+        <label  for="numNights">How many nights are you staying?</label>
+        <input type="number" id="numNights" min="1" max="10">
+      </div>
+
+      <br>
+      
+      <div class="hotelsButtonContainer">
+        <button class="form-control btn btn-info" onclick="createSections()">Enter Hotel Information</button>
+      </div>
+      
+    </div>
+    
+
     <div class= sectionsContainer id="sectionsContainer"></div>
 
-    <br>
 
     <div class="hotelsButtonContainer">
       <button class=" btn btn-warning" onclick="clearSections()">Clear Sections</button>
-    </div>
+    
 
   </section>
   <script defer src="source/hotel.js"></script>

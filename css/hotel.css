@@ -27,14 +27,16 @@ body {
     font-weight: 700;
     font-size: xxx-large;
 
-    background-color:rgb(198, 218, 255);
+    background-color:rgb(255, 228, 158);
+    text-shadow:2px 2px 2px rgb(255, 203, 72);
+
 
     display: flex;
     justify-content: center;
 }
 
 .sectionsContainer {
-    background-color: lightblue;
+    /* background-color: lightblue; */
     margin: 10px;
     border-radius: 5px;
 
@@ -47,6 +49,7 @@ body {
 .hotelsButtonContainer {
     display: flex;
     justify-content: center;
+    
 }
 
 .hotelNameInput {
@@ -63,4 +66,33 @@ body {
 
 .nameAndAddress {
     margin: 10px;
+}
+
+.lodgingSection {
+    background-color: lightblue;
+
+    margin: 10px;
+    border-radius: 5px;
+
+    padding: 5px;
+
+}
+
+.numNights {
+    display: flex;
+    justify-content: center;
+
+    gap: 10px;
+}
+
+.numNightsContainer {
+    margin: 10px;
+    padding-top: 20px;
+
+    width: 50%;
+
+
+
+    margin-left: auto;
+    margin-right: auto;
 }
