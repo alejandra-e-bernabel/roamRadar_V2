@@ -46,3 +46,10 @@
 .modal-content {
     width: 100%;
 }
+
+.flightButtonContainer {
+    
+        display: flex;
+        justify-content: center;
+        
+}

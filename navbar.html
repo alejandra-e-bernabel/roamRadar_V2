@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-  
+
   <link rel="stylesheet" type="text/css" href="./css/flight.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
@@ -179,8 +179,6 @@
                 <div id="bar"></div>
               </div>
             </div>
-
-
           </div>
 
           <div class="itemizedExpenses">
@@ -193,7 +191,6 @@
               No expenses added.<!-- Expenses will go here -->
             </div>
           </div>
-
 
           <div id="expenseModal" class="popup">
             <div class="popup-content">
@@ -241,8 +238,6 @@
         </div>
       </div>
 
-
-
       <!-- <br><br> -->
       <div class=thingsToDoItemized id="thingsToDoItemized"></div>
       </div>
@@ -256,11 +251,10 @@
         <div class="text-center">
           <h1 class="title">Flights</h1>
           <!-- <br> -->
-          
+
           <div id="flightInfoDisplay">
             <p>You haven't added your flights yet.</p>
           </div>
-
 
           <div class="modal fade" id="flightInfoModal" tabindex="-1" role="dialog"
             aria-labelledby="flightInfoModalLabel" aria-hidden="true">
@@ -301,11 +295,15 @@
           <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
           <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
           <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
-          <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+          <script type="text/javascript"
+            src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
           <script src="./source/flight.js"></script>
 
+          <div class="flightButtonContainer">
+            <button type="button" id="flightButton" class="button btn btn-info">Enter flight information</button>
+            <button type="button" id="clearFlightsButton" class="button btn btn-warning" onclick="clearFlightInfo()">Clear flight information</button>
+          </div>
 
-          <button type="button" id="flightButton" class="btn btn-info">Enter your flight info</button>
         </div>
       </div>
       <!-- Line between the two rows -->
