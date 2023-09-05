@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
 
+
     $('#dateRangeStartInput' ).daterangepicker({
         opens: 'left',
         autoUpdateInput: false,
@@ -14,14 +15,14 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     $('#dateRangeStartInput').on('apply.daterangepicker', function (ev, picker) {
-        $(this).val(picker.startDate.format('MM-DD-YYYY') + ' - ' + picker.endDate.format('MM-DD-YYYY'));
+        $(this).val('From ' + picker.startDate.format('MM-DD-YYYY') + ' to ' + picker.endDate.format('MM-DD-YYYY'));
     });
 
     $('#dateRangeStartInput').on('cancel.daterangepicker', function () {
         $(this).val('');
     });
 
-    const openPopupButton = document.getElementById('openPopup');
+    // const openPopupButton = document.getElementById('openPopup');
     const closePopupButton = document.querySelector('.close');
     const flightInfoElement = document.getElementById('flightInfo');
     const airlineInput = document.getElementById('airlineInput');
@@ -29,9 +30,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const dateRangeStartInput = document.getElementById('dateRangeStartInput');
     const saveFlightInfoButton = document.getElementById('saveFlightInfo');
 
-    openPopupButton.addEventListener('click', () => {
-        $('#flightInfoModal').modal('show');
-    });
+    // openPopupButton.addEventListener('click', () => {
+    //     $('#flightInfoModal').modal('show');
+    // });
 
     closePopupButton.addEventListener('click', () => {
         $('#flightInfoModal').modal('hide');
@@ -45,10 +46,11 @@ document.addEventListener('DOMContentLoaded', () => {
             airline,
             flightNumber,
             selectedStartDate,
-            selectedEndDate
+            // selectedEndDate
         }
 
         localStorage.setItem('flightInfo', JSON.stringify(flightInfo));
+        $('#flightInfoModal').modal('hide');
     });
 
 });

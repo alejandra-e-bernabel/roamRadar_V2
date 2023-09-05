@@ -180,12 +180,16 @@ clearButton.addEventListener("click", function () {
 // (Yo's section)
 var visitButton = document.getElementById("flightButton");
     visitButton.addEventListener("click", function () {
-    window.location.href = "flight2.html";
-    })
-    var visitButton = document.getElementById("hotelButton");
-    visitButton.addEventListener("click", function () {
-    window.location.href = "hotels.html";
-    })
+    //code to show flights popup window
+    $('#flightInfoModal').modal('show');
+    // window.location.href = "flight2.html";
+    });
+
+
+    // var visitButton = document.getElementById("hotelButton");
+    // visitButton.addEventListener("click", function () {
+    // window.location.href = "hotels.html";
+    // })
 
     //  var budgetButton = document.getElementById("budgetButton");
     //  budgetButton.addEventListener("click", function () {
