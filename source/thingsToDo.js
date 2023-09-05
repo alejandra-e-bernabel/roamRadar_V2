@@ -11,20 +11,20 @@ function initMap() {
 
 function searchNearbyPlaces() {
 
-    console.log("Entered SearchNearbyPlaces Function");
+    // console.log("Entered SearchNearbyPlaces Function");
 
     //resets table in case user enters a different location
     document.getElementById("places").innerHTML = "<tr><th>Contact information</th><th>Open hours</th><th>Location Image</th></tr>";
 
     var place = autocomplete.getPlace();
-    console.log(place);
+    // console.log(place);
 
     map = new google.maps.Map(document.getElementById("map"), {
         center: place.geometry.location,
         zoom: 15
     });
 
-    console.log([document.getElementById("type").value]);
+    // console.log([document.getElementById("type").value]);
 
     service = new google.maps.places.PlacesService(map);
     service.nearbySearch({
@@ -37,7 +37,7 @@ function searchNearbyPlaces() {
 
 function callback(results, status) {
     if (status == google.maps.places.PlacesServiceStatus.OK) {
-        console.log("There are this many results: " + results.length);
+        // console.log("There are this many results: " + results.length);
         for (var i = 0; i < results.length; i++) {
             createMarker(results[i]);
         }
@@ -68,12 +68,12 @@ function getPlaceDetails(Id) {
 
 function callbackDetails(results, status) {
     if (status === google.maps.places.PlacesServiceStatus.OK) {
-        console.log('There are this many results:', results);
+        // console.log('There are this many results:', results);
     }
 }
 
 function createMarker(place) {
-    //console.log(place);
+    console.log("place from createMarker:" + place.name + place.place_id + place.website);
     var id = place.place_id;
     var table = document.getElementById("places");
     var row = table.insertRow();
@@ -85,17 +85,17 @@ function createMarker(place) {
     // cell0.innerHTML = "<button type=button id=addItineraryButton class=\"btn-lg addItineraryButton btn btn-info\">Add to Itinerary</button>";
 
     row.classList.add(place.place_id);
-
+   
 
     getPlaceDetails(id)
         .then((place) => {
             // Access the place details and use them as needed
-            console.log(place.name);
-            console.log(place.formatted_address);
-            console.log(place.rating);
-            console.log(place.opening_hours);
-            console.log(place.website);
-            console.log(place.formatted_phone_number);
+            // console.log(place.name);
+            // console.log(place.formatted_address);
+            // console.log(place.rating);
+            // console.log(place.opening_hours);
+            // console.log(place.website);
+            // console.log(place.formatted_phone_number);
 
             if (!place.formatted_address) {
                 place.formatted_address = "No address available";
@@ -130,7 +130,7 @@ function createMarker(place) {
 
 
             if (place.opening_hours.weekday_text) {
-                console.log(place.opening_hours.weekday_text);
+                // console.log(place.opening_hours.weekday_text);
                 cell2.classList.add("openHoursCell");
                 cell2.innerHTML += (place.opening_hours.weekday_text[0]);
                 cell2.innerHTML += ("<br>" + place.opening_hours.weekday_text[1]);
@@ -199,6 +199,10 @@ function addButton() {
 
         // Get the content of the row
         const content = row.classList.toString();
+        
+
+        var jsonString = localStorage.getItem("tempPlaceInfo");
+        // var placeToSave = JSON.parse(jsonString);
 
         // Generate a unique ID for the row
         const rowId = generateUniqueId();
@@ -218,7 +222,7 @@ function addButton() {
 
         if (!isContentSaved) {
             // Save the row content to local storage with the unique ID
-            localStorage.setItem(rowId, content);
+            localStorage.setItem(rowId, jsonString);
             //localStorage.setItem(rowId, JSON.stringify(content));
 
 
@@ -252,7 +256,7 @@ clearButton.addEventListener("click", function () {
 
         var savedKeys = JSON.parse(localStorage.getItem('savedKeys'));
 
-        console.log(savedKeys);
+        // console.log(savedKeys);
 
         if (savedKeys) {
             savedKeys.forEach(function (e) {
