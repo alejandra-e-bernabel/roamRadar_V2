@@ -149,13 +149,24 @@ body {
 }
 
 .budgetHeader {
+    font-family:'Dancing Script', cursive;
+    font-weight: 700;
+    font-size: xxx-large;
+
+    background-color:rgb(255, 228, 158);
+    text-shadow:2px 2px 2px rgb(255, 203, 72);
+
+
     display: flex;
+    justify-content: center;
+    
+    /* display: flex; */
     /* justify-content: space-around; */
     gap: 30px;
-    justify-content: center;
+    /* justify-content: center; */
     align-items: center;
 
-    background-color:rgb(198, 218, 255);
+    /* background-color:rgb(198, 218, 255); */
     
 }
 
