@@ -21,7 +21,7 @@
 		// console.log("Selected searchNearbyRestaurants");
 
         //this grabs the table item from html and clears it out
-        document.getElementById('restaurants').innerHTML = "<tr><th>Name</th><th>Location Image</th></tr>";
+        document.getElementById('restaurants').innerHTML = "<tr><th><h1>Location Information</h1></th><th><h1>Image</h1></th></tr>";
 
         var restaurant = autocomplete.getPlace();
 
@@ -44,6 +44,7 @@
            for(var i = 0; i < results.length; i++) {
                createMarker(results[i]);
         }
+        addButton();
 	}
 	}
 
@@ -86,20 +87,26 @@
             var image = document.createElement("img");
             image.src = restaurant.photos[0].getUrl();
             let cell2 = row.insertCell(1);
-            image.width = 300;
-            image.height = 200;
-            image.style.borderRadius = 50;
+            image.width = 225;
+            image.height = 150;
+            // image.style.borderRadius = 50;
             cell2.innerHTML = image.outerHTML;
+            cell2.innerHTML += ("<div class=buttonContainer><button type=button id=" + restaurant.place_id +" class=\"addItem form-control btn btn-warning\">Add to Itinerary</button></div>");
 
         } else { 
             const image = document.createElement("img");
             image.src = "./images/roam_radar_200x300.png";
             let cell2 = row.insertCell(1);
-            image.width = 300;
-            image.height = 200;
+            image.width = 225;
+            image.height = 150;
             image.style.borderRadius = 50; 
             cell2.innerHTML = image.outerHTML;
+            cell2.innerHTML += ("<div class=buttonContainer><button type=button class=\"form-control btn btn-warning\">Add to Itinerary</button></div>");
+
             }
+
+
+
 
         //  var buttonRow = document.createElement ("tr");
         //  var buttonCell = buttonRow.insertCell;
@@ -111,33 +118,59 @@
     document.getElementById("type").onchange = searchNearbyRestaurants;
     
     function addButton() {
-        var groupId = document.querySelectorAll('table');
-        groupID.forEach(row => {
-            groupID.addEventListener("click", saveGroupToLocalStorage);
+        const groupId = document.querySelectorAll('button');
+        groupId.forEach(button => {
+            button.addEventListener("click", saveGroupToLocalStorage);
         });
 
     function saveGroupToLocalStorage(event) {
+
+        console.log("button was clicked");
         var group = event.currentTarget;
 
         group.style.background ="white";
 
-        var content = group.classList.toString();
-        var restaurantId = generateUniqId();
+        var content = group.id;
+        console.log("id is " + content);
 
+        retrieveDetailsByID(content)
+            .then((restaurant) => {
+
+                var tempRestaurant = {
+                    name: restaurant.name,
+                    address: restaurant.formatted_address,
+                    phoneNumber: restaurant.formatted_phone_number,
+                    website: restaurant.website
+                };
+
+                tempRestaurant = JSON.stringify(tempRestaurant);
+
+                localStorage.setItem("tempRestautantInfo", tempRestaurant);
+
+                var jsonString = localStorage.getItem("tempRestautantInfo");
+                JSON.parse(jsonString);
+                console.log("from jsonstring:" + JSON.parse(jsonString).name);
+                // var placeToSave = JSON.parse(jsonString);
+
+
+        const restaurantId = generateUniqId();
+
+
+        //I AM HERE
         let isContSaved = false;
         for(let i =0; i < localStorage.length; i++) {
-            var storedCont = localStorage.getItem("restaurantId" );
+            const storedCont = localStorage.getItem(localStorage.key(i));
             if (content === storedCont) {
                 isContSaved = true;
                 break;
             }
-
         }
+
         if (!isContSaved){
-         localStorage.setItem(restaurantId, content);
+         localStorage.setItem(restaurantId, localStorage.getItem("tempRestautantInfo"));
 
 
-         var inputKeys = JSON.parse(localStorage.getItem('inputKeys'));
+         const inputKeys = JSON.parse(localStorage.getItem('inputKeys')) || [];
          inputKeys.push(restaurantId);
          localStorage.setItem('inputKeys', JSON.stringify(inputKeys));
 
@@ -145,12 +178,37 @@
         } else { 
         console.log("restaurant with ID" +  groupId  + " already exists in local storage.");
         }
-    }
+    })
+}
     
     function generateUniqId() {
         return Math.random().toString(36).substring(2,10);
     }
   }
+
+  
+function retrieveDetailsByID(Id) {
+
+    return new Promise((resolve, reject) => {
+        let request = {
+            placeId: Id,
+            fields: ["name", "formatted_address", "rating", "opening_hours", "photos", "website", "geometry", "formatted_phone_number", "user_ratings_total"]
+        };
+
+        let service = new google.maps.places.PlacesService(map);
+
+        service.getDetails(request, (place, status) => {
+            if (status === google.maps.places.PlacesServiceStatus.OK) {
+                console.log("place details retrieved");
+                resolve(place); // Resolve the promise with the place details
+            }
+            else {
+                reject(new Error(status)); // Reject the promise with an error
+            }
+        });
+    });
+
+}
 
   clearAllButton = document.getElementById("clearAllButton");
 //   clearAllButton.addEventListener("click", function () {

@@ -2,7 +2,7 @@
     box-sizing: border-box;
     padding: 0px;
     margin:0px;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     font-style: normal;
     font-weight: 300;
     /* color: #07458F;#3CACAE */
@@ -10,16 +10,11 @@
   
   
   }
-  body{
-     /* background-image:url("../images/vibrant-food.jpg"); */
-     height: auto;
-     max-width: 100%;
-     background-position: center;
-     background-size: cover;
-     /* border-image-repeat: no-repeat; */
-     align-content: space-around;
   
-  }
+ body {
+  background-color: aliceblue;
+ }
+
   .container{
     /* z-index: 2; */
 
@@ -57,6 +52,10 @@
     font-size: 16px;
 }
 
+.buttonContainer {
+  padding-top: 10px;
+}
+
 .header {
   padding: 20px;
   margin-bottom: 30px;
@@ -75,6 +74,7 @@
     max-width: fit-content;
     margin-right: auto;
     margin-left: auto;
+    
   }
   a.nav-link{
       text-decoration: none;
@@ -88,7 +88,10 @@
   }
 
   .restaurantQuestions {
-    padding: 25px;
+    padding: 30px;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .tableItemName {
@@ -101,5 +104,14 @@
     justify-content: center;
     /* align-items: center; */
 }
-  
+
+h1 {
+  font-family: 'Dancing Script', cursive;
+  display: flex;
+  justify-content: center;
+}
+
+td {
+  vertical-align: middle;
+}
   

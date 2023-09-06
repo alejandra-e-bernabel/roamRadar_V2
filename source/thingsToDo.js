@@ -33,7 +33,7 @@ function searchNearbyPlaces() {
         type: [document.getElementById("type").value]
 
     }, callback);
-    
+
 }
 
 function callback(results, status) {
@@ -86,7 +86,7 @@ function createMarker(place) {
     // cell0.innerHTML = "<button type=button id=addItineraryButton class=\"btn-lg addItineraryButton btn btn-info\">Add to Itinerary</button>";
 
     row.classList.add(place.place_id);
-   
+
 
     getPlaceDetails(id)
         .then((place) => {
@@ -116,7 +116,7 @@ function createMarker(place) {
 
             var htmlString = ("<div class = tableItemName>" + place.name + "</div><br>");
 
-            
+
             htmlString += ("<div class=itemInformation><b><u>Address:</u></b>" + place.formatted_address + "<b><u>Rating:</u></b>" + place.rating);
 
             if (place.website) {
@@ -127,7 +127,7 @@ function createMarker(place) {
             }
 
             htmlString += ("<b><u>Phone number:</u></b>" + place.formatted_phone_number + "</div>");
-            
+
             cell1.innerHTML = htmlString;
             //saves location ID as the class of the item
 
@@ -190,9 +190,9 @@ function addButton() {
     const rows = document.querySelectorAll('table tr');
 
     // Add event listener to each row
-    rows.forEach(function(row,index) {
-        if (index!=0) {
-        row.addEventListener("click", saveRowToLocalStorage);
+    rows.forEach(function (row, index) {
+        if (index != 0) {
+            row.addEventListener("click", saveRowToLocalStorage);
         }
 
     });
@@ -208,81 +208,60 @@ function addButton() {
         const content = row.classList.toString();
 
         retrieveDetailsByID(content)
-          .then((place) => {
+            .then((place) => {
 
-            var tempLocation = {
-                name: place.name,
-                address: place.formatted_address,
-                phoneNumber: place.formatted_phone_number,
-                website: place.website
-            };
+                var tempLocation = {
+                    name: place.name,
+                    address: place.formatted_address,
+                    phoneNumber: place.formatted_phone_number,
+                    website: place.website
+                };
 
-            tempLocation = JSON.stringify(tempLocation);
+                tempLocation = JSON.stringify(tempLocation);
 
-            localStorage.setItem("tempPlaceInfo", tempLocation);
+                localStorage.setItem("tempPlaceInfo", tempLocation);
 
-        //     console.log(place.name);
-        //     console.log(place.formatted_address);
-        //     console.log(place.formatted_phone_number);
+                var jsonString = localStorage.getItem("tempPlaceInfo");
+                JSON.parse(jsonString);
+                console.log("from jsonstring:" + JSON.parse(jsonString).name);
+                // var placeToSave = JSON.parse(jsonString);
 
-        //   if (place.website) {
-        //     console.log(place.website);
-        //   } else {
-        //     acesToVisitEl.innerHTML += ("<br><b><u>Website address:<br></u></b>" + place.website);
-        //   }
+                // Generate a unique ID for the row
+                const rowId = generateUniqueId();
 
-        //   placesToVisitEl.innerHTML += ("<br><b><u>Phone number:<br></u></b>" + place.formatted_phone_number + "<br><br></div>");
-
-        var jsonString = localStorage.getItem("tempPlaceInfo");
-        JSON.parse(jsonString);
-        console.log("from jsonstring:" + JSON.parse(jsonString).name);
-        // var placeToSave = JSON.parse(jsonString);
-
-        // Generate a unique ID for the row
-        const rowId = generateUniqueId();
-
-        //save unique ID to key savedThingsToDo
+                //save unique ID to key savedThingsToDo
 
 
-        let isContentSaved = false;
-        for (let i = 0; i < localStorage.length; i++) {
-            const storedContent = localStorage.getItem(localStorage.key(i));
-            if (content === storedContent) {
-                isContentSaved = true;
-                break;
-            }
-        }
+                let isContentSaved = false;
+                for (let i = 0; i < localStorage.length; i++) {
+                    const storedContent = localStorage.getItem(localStorage.key(i));
+                    if (content === storedContent) {
+                        isContentSaved = true;
+                        break;
+                    }
+                }
 
 
-        if (!isContentSaved) {
-            // Save the row content to local storage with the unique ID
-            localStorage.setItem(rowId, localStorage.getItem("tempPlaceInfo"));
-            //localStorage.setItem(rowId, JSON.stringify(content));
+                if (!isContentSaved) {
+                    // Save the row content to local storage with the unique ID
+                    localStorage.setItem(rowId, localStorage.getItem("tempPlaceInfo"));
+                    //localStorage.setItem(rowId, JSON.stringify(content));
 
 
-            // Add the key to the array of keys in local storage
-            const savedKeys = JSON.parse(localStorage.getItem('savedKeys')) || [];
-            savedKeys.push(rowId);
-            localStorage.setItem('savedKeys', JSON.stringify(savedKeys));
-
-
-            // Optional: Display a message that the row was saved
-            console.log("Row with ID" + rowId + "saved to local storage.");
-        } else {
-            // Optional: Display a message that the row was already saved
-            console.log("Row with ID" + rowId + "already exists in local storage.");
-        }
-
-        })
-
-        
-
-
+                    // Add the key to the array of keys in local storage
+                    const savedKeys = JSON.parse(localStorage.getItem('savedKeys')) || [];
+                    savedKeys.push(rowId);
+                    localStorage.setItem('savedKeys', JSON.stringify(savedKeys));
+                    console.log("Row with ID" + rowId + "saved to local storage.");
+                } else {
+                    console.log("Row with ID" + rowId + "already exists in local storage.");
+                }
+            })
     }
 
     // Function to generate a unique ID for each row
     function generateUniqueId() {
-        return Math.random().toString(36).substr(2, 9);
+        return Math.random().toString(36).substring(2, 9);
     }
 }
 
@@ -306,32 +285,28 @@ clearButton.addEventListener("click", function () {
         localStorage.removeItem("savedKeys");
     });
 
-
-
-
 });
-
 
 
 function retrieveDetailsByID(Id) {
 
-  return new Promise((resolve, reject) => {
-    let request = {
-      placeId: Id,
-      fields: ["name", "formatted_address", "rating", "opening_hours", "photos", "website", "geometry", "formatted_phone_number", "user_ratings_total"]
-    };
+    return new Promise((resolve, reject) => {
+        let request = {
+            placeId: Id,
+            fields: ["name", "formatted_address", "rating", "opening_hours", "photos", "website", "geometry", "formatted_phone_number", "user_ratings_total"]
+        };
 
-    let service = new google.maps.places.PlacesService(map);
+        let service = new google.maps.places.PlacesService(map);
 
-    service.getDetails(request, (place, status) => {
-      if (status === google.maps.places.PlacesServiceStatus.OK) {
-        console.log("place details retrieved");
-        resolve(place); // Resolve the promise with the place details
-      }
-      else {
-        reject(new Error(status)); // Reject the promise with an error
-      }
+        service.getDetails(request, (place, status) => {
+            if (status === google.maps.places.PlacesServiceStatus.OK) {
+                console.log("place details retrieved");
+                resolve(place); // Resolve the promise with the place details
+            }
+            else {
+                reject(new Error(status)); // Reject the promise with an error
+            }
+        });
     });
-  });
 
 }
