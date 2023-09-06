@@ -33,6 +33,7 @@ function searchNearbyPlaces() {
         type: [document.getElementById("type").value]
 
     }, callback);
+    
 }
 
 function callback(results, status) {
@@ -199,9 +200,36 @@ function addButton() {
 
         // Get the content of the row
         const content = row.classList.toString();
-        
+
+        retrieveDetailsByID(content)
+          .then((place) => {
+
+            var tempLocation = {
+                name: place.name,
+                address: place.formatted_address,
+                phoneNumber: place.formatted_phone_number,
+                website: place.website
+            };
+
+            tempLocation = JSON.stringify(tempLocation);
+
+            localStorage.setItem("tempPlaceInfo", tempLocation);
+
+        //     console.log(place.name);
+        //     console.log(place.formatted_address);
+        //     console.log(place.formatted_phone_number);
+
+        //   if (place.website) {
+        //     console.log(place.website);
+        //   } else {
+        //     acesToVisitEl.innerHTML += ("<br><b><u>Website address:<br></u></b>" + place.website);
+        //   }
+
+        //   placesToVisitEl.innerHTML += ("<br><b><u>Phone number:<br></u></b>" + place.formatted_phone_number + "<br><br></div>");
 
         var jsonString = localStorage.getItem("tempPlaceInfo");
+        JSON.parse(jsonString);
+        console.log("from jsonstring:" + JSON.parse(jsonString).name);
         // var placeToSave = JSON.parse(jsonString);
 
         // Generate a unique ID for the row
@@ -222,7 +250,7 @@ function addButton() {
 
         if (!isContentSaved) {
             // Save the row content to local storage with the unique ID
-            localStorage.setItem(rowId, jsonString);
+            localStorage.setItem(rowId, localStorage.getItem("tempPlaceInfo"));
             //localStorage.setItem(rowId, JSON.stringify(content));
 
 
@@ -238,6 +266,12 @@ function addButton() {
             // Optional: Display a message that the row was already saved
             console.log("Row with ID" + rowId + "already exists in local storage.");
         }
+
+        })
+
+        
+
+
     }
 
     // Function to generate a unique ID for each row
@@ -245,7 +279,6 @@ function addButton() {
         return Math.random().toString(36).substr(2, 9);
     }
 }
-
 
 clearButton = document.getElementById("clearButton");
 
@@ -272,3 +305,27 @@ clearButton.addEventListener("click", function () {
 
 });
 
+
+
+function retrieveDetailsByID(Id) {
+
+  return new Promise((resolve, reject) => {
+    let request = {
+      placeId: Id,
+      fields: ["name", "formatted_address", "rating", "opening_hours", "photos", "website", "geometry", "formatted_phone_number", "user_ratings_total"]
+    };
+
+    let service = new google.maps.places.PlacesService(map);
+
+    service.getDetails(request, (place, status) => {
+      if (status === google.maps.places.PlacesServiceStatus.OK) {
+        console.log("place details retrieved");
+        resolve(place); // Resolve the promise with the place details
+      }
+      else {
+        reject(new Error(status)); // Reject the promise with an error
+      }
+    });
+  });
+
+}
