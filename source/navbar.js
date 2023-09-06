@@ -76,24 +76,40 @@ function initMap() {
 
 
 function getPlaceDetails(placeId) {
-  // Create a new PlacesService instance
-  const placesService = new google.maps.places.PlacesService(document.createElement('div'));
+   placesToVisitEl = document.getElementById("thingsToDoItemized");
 
-  // Define the desired fields for place details
-  const fields = ["name", "formatted_address", "rating", "opening_hours", "photos", "website", "geometry", "formatted_phone_number", "user_ratings_total"];
+  
 
-  // Call the getDetails method to retrieve the place details
-  placesService.getDetails({
-    placeId: placeId,
-    fields: fields
-  }, (placeResult, status) => {
-    if (status === google.maps.places.PlacesServiceStatus.OK) {
-      console.log(placeResult); // for testing purposes, you can modify this to do whatever you want with the place details
-    } else {
-      console.error(status);
-    }
-  });
+      //     placesToVisitEl.innerHTML += ("<div class=placeToVisitItem><h2>" + place.name + "</h2>");
+      //     placesToVisitEl.innerHTML += ("<b><u>Address:</u></b><br>" + place.formatted_address + "<br><b><u>Rating:<br></u></b>" + place.rating);
+
+      //     if (place.website) {
+      //       placesToVisitEl.innerHTML += ("<br><b><u>Website address:<br></u></b>" + "<a href=\"" + place.website + "\" target=\"_blank\">" + place.website + "</a>");
+      //     } else {
+      //       place.website = "No website address available";
+      //       placesToVisitEl.innerHTML += ("<br><b><u>Website address:<br></u></b>" + place.website);
+      //     }
+
+      //     placesToVisitEl.innerHTML += ("<br><b><u>Phone number:<br></u></b>" + place.formatted_phone_number + "<br><br></div>");
 }
+//   // Create a new PlacesService instance
+//   const placesService = new google.maps.places.PlacesService(document.createElement('div'));
+
+//   // Define the desired fields for place details
+//   const fields = ["name", "formatted_address", "rating", "opening_hours", "photos", "website", "geometry", "formatted_phone_number", "user_ratings_total"];
+
+//   // Call the getDetails method to retrieve the place details
+//   placesService.getDetails({
+//     placeId: placeId,
+//     fields: fields
+//   }, (placeResult, status) => {
+//     if (status === google.maps.places.PlacesServiceStatus.OK) {
+//       console.log(placeResult); // for testing purposes, you can modify this to do whatever you want with the place details
+//     } else {
+//       console.error(status);
+//     }
+//   });
+// }
 
 // function getPlaceDetails(Id) {
 
@@ -132,28 +148,30 @@ document.getElementById("checkItinerary").addEventListener("click", function () 
 
 
     savedKeys.forEach(function (key) {
+      console.log ("Key is" + key);
       var item = localStorage.getItem(key);
+      item = JSON.parse(item);
 
-      getPlaceDetails(item);
+      // getPlaceDetails(item);
 
       // getPlaceDetails(item)
       //   .then((place) => {
 
-      //     placesToVisitEl = document.getElementById("thingsToDoItemized");
-      //     placesToVisitEl.innerHTML += ("<div class=placeToVisitItem><h2>" + place.name + "</h2>");
-      //     placesToVisitEl.innerHTML += ("<b><u>Address:</u></b><br>" + place.formatted_address + "<br><b><u>Rating:<br></u></b>" + place.rating);
+      placesToVisitEl = document.getElementById("thingsToDoItemized");
+      placesToVisitEl.innerHTML += ("<div class=placeToVisitItem><h2>" + item.name + "</h2>");
+      placesToVisitEl.innerHTML += ("<b><u>Address:</u></b><br>" + item.address);
 
-      //     if (place.website) {
-      //       placesToVisitEl.innerHTML += ("<br><b><u>Website address:<br></u></b>" + "<a href=\"" + place.website + "\" target=\"_blank\">" + place.website + "</a>");
-      //     } else {
-      //       place.website = "No website address available";
-      //       placesToVisitEl.innerHTML += ("<br><b><u>Website address:<br></u></b>" + place.website);
-      //     }
+      if (item.website) {
+            placesToVisitEl.innerHTML += ("<br><b><u>Website address:<br></u></b>" + "<a href=\"" + item.address + "\" target=\"_blank\">" + item.website + "</a>");
+          } else {
+            item.website = "No website address available";
+            placesToVisitEl.innerHTML += ("<br><b><u>Website address:<br></u></b>" + item.website);
+          }
 
-      //     placesToVisitEl.innerHTML += ("<br><b><u>Phone number:<br></u></b>" + place.formatted_phone_number + "<br><br></div>");
+          placesToVisitEl.innerHTML += ("<br><b><u>Phone number:<br></u></b>" + item.phoneNumber + "<br><br></div>");
 
-      //   })
-    });
+        })
+    
 
     var visitButton = document.getElementById("placesToVisitButton");
     visitButton.addEventListener("click", function () {
