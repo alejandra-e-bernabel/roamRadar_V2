@@ -18,12 +18,12 @@
     //      document.getElementById('type').onchange = searchNearbyRestaurants
     
     function searchNearbyRestaurants(){
-		console.log("Selected searchNearbyRestaurants");
+		// console.log("Selected searchNearbyRestaurants");
 
-        document.getElementById('restaurants').innerHTML = '';
+        //this grabs the table item from html and clears it out
+        document.getElementById('restaurants').innerHTML = "<tr><th>Name</th><th>Location Image</th></tr>";
 
         var restaurant = autocomplete.getPlace();
-        
 
         map = new google.maps.Map(document.getElementById('map'), {
             center: restaurant.geometry.location,
@@ -33,13 +33,14 @@
         service = new google.maps.places.PlacesService(map);
         service.nearbySearch({
             location: restaurant.geometry.location,
-            radius: '500',
-            type: ['restaurants']
+            radius: '5000',
+            type: [document.getElementById("type").value]
         }, callback)
     }
+
     function callback(results, status) {
         if(status === google.maps.places.PlacesServiceStatus.OK) {
-           console.log(results.length)
+        //    console.log(results.length)
            for(var i = 0; i < results.length; i++) {
                createMarker(results[i]);
         }
@@ -47,7 +48,7 @@
 	}
 
     function createMarker(restaurant) {
-        console.log(restaurant);
+        // console.log(restaurant);
         var table = document.getElementById("restaurants");
         var row = table.insertRow();
         var cell1 = row.insertCell(0);
@@ -118,22 +119,22 @@
   }
 
   clearAllButton = document.getElementById("clearAllButton");
-  clearAllButton.addEventListener("click", function () {
-    var restaurantTables = document.querySelectorAll(".restaurantTable");
-    restaurantTables.forEach(function (restaurantTable) {
-        restaurantTable.style.background = "#87CEFA";
+//   clearAllButton.addEventListener("click", function () {
+//     var restaurantTables = document.querySelectorAll(".restaurantTable");
+//     restaurantTables.forEach(function (restaurantTable) {
+//         restaurantTable.style.background = "#87CEFA";
 
-        var inputKeys = JSON.parse(localStorage.getItem('inputKeys'));
+//         var inputKeys = JSON.parse(localStorage.getItem('inputKeys'));
     
-    console.log(inputKeys);
+//     console.log(inputKeys);
 
-    if (inputKeys) {
-        inputKeys.forEach(function (event) {
-            localStorage.removeItem(event);
-        });
-    }
+//     if (inputKeys) {
+//         inputKeys.forEach(function (event) {
+//             localStorage.removeItem(event);
+//         });
+//     }
        
-  });
-  localStorage.removeItem("inputKeys");
-  localStorage.setItem('inputKeys',JSON.stringify([]));
-});
+//   });
+//   localStorage.removeItem("inputKeys");
+//   localStorage.setItem('inputKeys',JSON.stringify([]));
+// });
