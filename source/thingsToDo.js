@@ -14,7 +14,7 @@ function searchNearbyPlaces() {
     // console.log("Entered SearchNearbyPlaces Function");
 
     //resets table in case user enters a different location
-    document.getElementById("places").innerHTML = "<tr><th>Contact information</th><th>Open hours</th><th>Location Image</th></tr>";
+    document.getElementById("places").innerHTML = "<tr><th>Contact information</th><th>Open hours</th><th class=hide-on-medium>Location Image</th></tr>";
 
     var place = autocomplete.getPlace();
     // console.log(place);
@@ -114,19 +114,21 @@ function createMarker(place) {
                 place.formatted_phone_number = "No phone number available";
             }
 
+            var htmlString = ("<div class = tableItemName>" + place.name + "</div><br>");
 
-            cell1.innerHTML = ("<div class = tableItemName>" + place.name + "</div>");
-            cell1.innerHTML += ("<br><br> <b><u>Address:</u></b><br>" + place.formatted_address + "<br><br><b><u>Rating:<br></u></b>" + place.rating);
+            
+            htmlString += ("<div class=itemInformation><b><u>Address:</u></b>" + place.formatted_address + "<b><u>Rating:</u></b>" + place.rating);
 
             if (place.website) {
-                cell1.innerHTML += ("<br><br><b><u>Website address:<br></u></b>" + "<a href=\"" + place.website + "\" target=\"_blank\">" + place.website + "</a>");
+                htmlString += ("<a href=\"" + place.website + "\" target=\"_blank\">Website address</a>");
             } else {
                 place.website = "No website address available";
-                cell1.innerHTML += ("<br><br><b><u>Website address:<br></u></b>" + place.website);
+                htmlString += ("<b><u>Website address:</u></b>" + place.website);
             }
 
-            cell1.innerHTML += ("<br><br><b><u>Phone number:<br></u></b>" + place.formatted_phone_number);
-
+            htmlString += ("<b><u>Phone number:</u></b>" + place.formatted_phone_number + "</div>");
+            
+            cell1.innerHTML = htmlString;
             //saves location ID as the class of the item
 
 
@@ -158,6 +160,7 @@ function createMarker(place) {
         const image = document.createElement("img");
         image.src = place.photos[0].getUrl();
         let cell3 = row.insertCell(2);
+        cell3.classList.add("hide-on-medium");
         image.width = 300;
         image.height = 200;
         image.style.borderRadius = 50;
@@ -168,6 +171,7 @@ function createMarker(place) {
         const image = document.createElement("img");
         image.src = "./images/roam_radar_200x300.png";
         let cell3 = row.insertCell(2);
+        cell3.classList.add("hide-on-medium");
         image.width = 300;
         image.height = 200;
         image.style.borderRadius = 50;
@@ -186,8 +190,10 @@ function addButton() {
     const rows = document.querySelectorAll('table tr');
 
     // Add event listener to each row
-    rows.forEach(row => {
+    rows.forEach(function(row,index) {
+        if (index!=0) {
         row.addEventListener("click", saveRowToLocalStorage);
+        }
 
     });
 
@@ -196,7 +202,7 @@ function addButton() {
         // Get the row that was clicked
         const row = event.currentTarget;
 
-        row.style.background = "white";
+        row.style.background = "aliceblue";
 
         // Get the content of the row
         const content = row.classList.toString();

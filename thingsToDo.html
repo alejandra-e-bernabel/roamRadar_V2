@@ -13,8 +13,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300&family=Raleway:ital@1&display=swap"
     rel="stylesheet">
 
-  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
-
+  <!-- <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet"> -->
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Pacifico&display=swap"
+  rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="./css/thingsToDo.css" />
 
   <link rel="stylesheet" href="css/navbar.css" />
@@ -24,7 +25,7 @@
 </head>
 
 <body>
-
+<!-- 
   <nav class="sidenav">
     <ul>
       <li><img src="images/ROAMRADAR Logo PNG.png" id="logo" /></li>
@@ -51,7 +52,7 @@
       </li>
     </ul>
     </div>
-  </nav>
+  </nav> -->
 
   <div class = backgroundHeader>
     <h1 class="header ">Places to Visit</h1>
@@ -85,15 +86,16 @@
     <div class="buttonRow">
 
       <!-- <button type="button" class=" centerContent btn btn-light" id="deletePreviousItem">Delete Previous Item</button> -->
-      <button type="button" class=" centerContent btn btn-light" id="clearButton">Clear itinerary</button>
-      <a class="btn btn-light" href="navbar.html">Return to Home</a>    
-      <a class = "btn btn-light" href="navbar.html#alejandra-intro">Check Current Itinerary</a>
+      <a class="button btn btn-info" href="navbar.html">Return to Home</a>    
+      <button type="button" class="button btn btn-warning" id="clearButton">Clear itinerary</button>
+      <!-- <a class = "btn btn-light" href="navbar.html#alejandra-intro">Check Current Itinerary</a> -->
 
     </div>
     <br>
 
+    </table>
     <table class="table table-bordered table-hover" id="places">
-      <h3>Click on rows to add destination to your itnerary:</h3>
+      <h3>Click on rows to add destination to your itinerary:</h3>
       <tr>
         <!-- <th>
                     Add to Itinerary
@@ -106,7 +108,7 @@
           Open hours
         </th>
 
-        <th>
+        <th class="hide-on-medium">
           Location Image
         </th>
       </tr>

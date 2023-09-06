@@ -212,7 +212,17 @@
   /* If adding CSS to your portion of navbar please do not touch CSS that is above, it will mess up current look  */
   
   /* Beginning of Alejandra's portion */
-  
+
+.thingsToDoTitle {
+  font-family:'Dancing Script', cursive;
+  font-weight: 700;
+  font-size: xxx-large;
+  background-color:rgb(255, 228, 158);
+  text-shadow:2px 2px 2px rgb(255, 203, 72);
+  display: flex;
+  justify-content: center;
+}
+
   .alejandraIntro {
     /* margin-left: 200px; */
     text-align: center;
@@ -221,6 +231,7 @@
   .thingsToDoItemized {
     /* background-color: aliceblue; */
     padding:50px;
+    padding-top: 0px;
     /* margin-right: 50px; */
   
   }
@@ -230,7 +241,7 @@
   }
 
   .placeToVisitItemBody {
-    background-color: hotpink;
+    background-color: aliceblue;
   }
   
   .noColor {

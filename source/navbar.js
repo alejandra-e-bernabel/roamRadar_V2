@@ -196,7 +196,7 @@ function getPlaceDetails(placeId) {
 
   else {
     placesToVisitEl = document.getElementById("thingsToDoItemized");
-    placesToVisitEl.innerHTML = ("<h5>It looks like you haven't added anything to your itinerary yet. Try Checking places to visit!</p>");
+    placesToVisitEl.innerHTML = ("<h5>It looks like you haven't added anything to your itinerary yet. Try looking for some places to visit!</p>");
 
   }
 
@@ -223,7 +223,7 @@ clearButton.addEventListener("click", function () {
   localStorage.removeItem("savedKeys");
 
     placesToVisitEl = document.getElementById("thingsToDoItemized");
-    placesToVisitEl.innerHTML = ("<h5>It looks like you haven't added anything to your itinerary yet. Try Checking places to visit!</p>");
+    placesToVisitEl.innerHTML = ("<h5>It looks like you haven't added anything to your itinerary yet. Try looking for some places to visit!</h5>");
 
 
 

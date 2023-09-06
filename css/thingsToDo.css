@@ -2,7 +2,9 @@
     box-sizing:border-box;
     padding: 0;
     margin: 0;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Montserrat', sans-serif;
+
+    /* font-family: 'Inter', sans-serif; */
     /* font-family: 'Raleway', sans-serif; */
 
 }
@@ -11,42 +13,48 @@ body {
     background-image: url("");
     background-size: contain;
 
-    background-color: #d0eafb;
+    /* background-color: #d0eafb; */
 }
 
 .header {
-    background-color: #87CEFA;
-    /* background-image: url("/images/"); */
-    color: #14544b;
-    font-weight: 700;
-
-    font-family: 'Pacifico', cursive;
-    
     padding: 20px;
     margin-bottom: 30px;
 
-    border: #14544b;
-    border-width: 5px;
-    border-style: solid;
+    /* border: #14544b; */
+    /* border-width: 5px;
+    border-style: solid; */
 
     display: flex;
     justify-content: center;
 
-    margin-left: 170px;
+    /* margin-left: 170px; */
+
+    font-family:'Dancing Script', cursive;
+    font-weight: 700;
+    font-size: xxx-large;
+
+    background-color:rgb(255, 228, 158);
+    text-shadow:2px 2px 2px rgb(255, 203, 72);
+
+
+    display: flex;
+    justify-content: center;
 
 }
 
 table {
     /* border-collapse:separate; */
     /* border:solid black 1px; */
-    border-radius:15px;
+    /* border-radius:15px; */
+    word-wrap: break-word;
 }
 
 td, th {
     /* border-left:solid black 1px;
     border-top:solid black 1px; */
-    
 }
+
+
 
 .openHoursCell {
     min-width: 250px;
@@ -57,9 +65,14 @@ th {
     border-top: none;
 }
 
-td:first-child, th:first-child {
-     border-left: none;
+.itemInformation {
+    /* background-color: hotpink; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
+
 
 .table {
     /* background-color: #b2d2fa; */
@@ -70,13 +83,23 @@ label {
     font-weight: 700;
 }
 
+.button {
+    margin: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+}
+
 
 
 .tableItemName {
     font-size: x-large;
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-family: 'Montserrat', sans-serif;
     font-style: italic;
     text-align: center;
+
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
 }
 
 td {
@@ -84,9 +107,9 @@ td {
 }
 
 .thingsToDoContent {
-    margin-left: 200px;
-    padding-right: 2rem;
-    
+    /* margin-left: 200px; */
+    /* padding-right: 2rem; */
+    padding: 20px;
 }
 
 .addItineraryButton {
@@ -96,9 +119,19 @@ td {
 
 .buttonRow{
     display: flex;
-    justify-content: space-around;
-    text-align: center;
+    /* justify-content: space-around; */
+    /* text-align: center; */
+    justify-content: center;
 }
+
+
+
+@media screen and (max-width: 768px) {
+    .hide-on-medium {
+      display: none;
+    }
+  }
+
 /* 
 .backgroundHeader {
     background-image: url("/images/Boardwalk\ over\ ocean.jpg");
