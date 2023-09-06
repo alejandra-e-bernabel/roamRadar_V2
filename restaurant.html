@@ -7,7 +7,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300&family=Raleway:ital@1&display=swap" rel="stylesheet">
-    
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Pacifico&display=swap"
+rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="css/restaruant.css">
 <link rel="stylesheet" href="css/navbar.css">
     <title>Restaurant to Visit</title>
@@ -15,7 +16,7 @@
 <body>
 
    <!-- </div> -->
- <nav class="sidenav">
+ <!-- <nav class="sidenav">
           <ul>
             <li><img src="images/ROAMRADAR Logo PNG.png" id="logo"/></li>
             <li class="nav-item">
@@ -41,17 +42,18 @@
             </li>
           </ul>
         </div>
-      </nav>
-<div class="container">
-    <br><br>
-    <h1 class="text-center">Restaurant Near By</h1>
+      </nav> -->
+
+<!-- <div class="container"> -->
+    <h1 class="header">Restaurants to Visit</h1>
     <div id="map"></div>
+
+    <div class = restaurantQuestions>
     <div class="form-group">
         <label for="location">Enter Location</label>
-        <br><br>
         <input type="text" class="form-control" id="autocomplete" placeholder="Enter a Location">
     </div>
-        <br><br>
+        <br>
     <div class="form-group">
         <label for="type">Select Restaurant Type:</label>
         <select class="form-control"  id="type">
@@ -66,24 +68,22 @@
             <option id="bakery">Bakery</option>
 
         </select>
+      </div>
 
     
 
         <br>
         <div class="buttonGroup">
-          <button type="button" class="centerContent btn btn-light" id="clearAllButton ">Clear All Button </button> 
-          <button type="button" class="centerContent btn btn-light" id="go back">Go back</button>
-          <button type="button" class="centerContent btn btn-light" id="goToItinerary"><a href="navbar.html"> Go to Itinerary</a> </button>
+          <button type="button" class="button btn btn-warning" id="clearAllButton ">Clear All</button> 
+          <!-- <button type="button" class="centerContent btn btn-light" id="go back">Go back</button> -->
+          <button type="button" class="button btn btn-info" id="goToItinerary"><a href="navbar.html">Return to Home</a> </button>
           <!-- <button type="button" class="centerContent btn btn-light" id="add to itinerary">Add to Itinerary</button> -->
         </div>
         <br>
         
     <table class="table table-bordered table-striped" id="restaurants"></table>
 
-    
-
-
-</div>
+<!-- </div> -->
 
  <script src="./source/restaurant.js"></script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDSEeg3wCbQ_G1agwaTFjF_gNTmNQA3TqI&libraries=places&callback=initMap"
