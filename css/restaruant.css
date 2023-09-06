@@ -71,7 +71,10 @@
 
   
   .table {
-    background-color:#87CEFA;
+    background-color:beige;
+    max-width: fit-content;
+    margin-right: auto;
+    margin-left: auto;
   }
   a.nav-link{
       text-decoration: none;

@@ -58,18 +58,30 @@
         if (!restaurant.rating) {
             restaurant.rating = "No rating available";
         }
-        htmlString += ("<div class=itemInformation><b><u>Rating:</u></b>" + restaurant.rating);
 
-        // if (restaurant.website) {
-        //     htmlString += ("<a href=\"" + restaurant.website + "\" target=\"_blank\">Website address</a>");
-        // } else {
-        //     restaurant.website = "No website address available";
-        //     htmlString += ("<b><u>Website address:</u></b>" + restaurant.website);
-        // }
-        
+        if (!restaurant.vicinity) {
+            restaurant.vicinity = "No address available";
+        }
+        htmlString += ("<div class=itemInformation><p><b><u>Rating</u></b>: " + restaurant.rating+ "</p>");
+        htmlString += ("<p><b><u>Address</u></b>: " + restaurant.vicinity + "</p>");
+
+        if (restaurant.price_level) {
+            if (restaurant.price_level == 1) {
+                restaurant.price_level = "$";
+            } else if (restaurant.price_level == 2) {
+                restaurant.price_level = "$$";
+            } else if (restaurant.price_level ==3) {
+                restaurant.price_level = "$$$"
+            } else {
+                restaurant.price_level = "$$$$";
+            }
+        } else {
+            restaurant.price_level = "No price information available"
+        }
+
+        htmlString += ("<p><b><u>Price level</u></b>: " + restaurant.price_level + "</p></div>"); 
         cell1.innerHTML = htmlString;
 
-        // cell1.innerHTML = restaurant.name;
         if(restaurant.photos) {
             var image = document.createElement("img");
             image.src = restaurant.photos[0].getUrl();
@@ -88,6 +100,12 @@
             image.style.borderRadius = 50; 
             cell2.innerHTML = image.outerHTML;
             }
+
+        //  var buttonRow = document.createElement ("tr");
+        //  var buttonCell = buttonRow.insertCell;
+        //  buttonCell.colSpan = table.rows[0].cells.length;
+        //  buttonCell.innerHTML = "button here";
+        //  table.appendChild(buttonRow);
         }
 
     document.getElementById("type").onchange = searchNearbyRestaurants;
