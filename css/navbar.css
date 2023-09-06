@@ -219,13 +219,18 @@
   }
   
   .thingsToDoItemized {
-    background-color: aliceblue;
+    /* background-color: aliceblue; */
+    padding:50px;
     /* margin-right: 50px; */
   
   }
   
   .placeToVisitItem {
     background-color: #87CEFA;
+  }
+
+  .placeToVisitItemBody {
+    background-color: hotpink;
   }
   
   .noColor {

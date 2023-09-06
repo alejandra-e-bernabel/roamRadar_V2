@@ -134,7 +134,7 @@ function getPlaceDetails(placeId) {
 // }
 
 
-document.getElementById("checkItinerary").addEventListener("click", function () {
+ function populateThingsToDo () {
   var savedKeys = JSON.parse(localStorage.getItem('savedKeys'));
 
   if (savedKeys) {
@@ -158,17 +158,31 @@ document.getElementById("checkItinerary").addEventListener("click", function () 
       //   .then((place) => {
 
       placesToVisitEl = document.getElementById("thingsToDoItemized");
-      placesToVisitEl.innerHTML += ("<div class=placeToVisitItem><h2>" + item.name + "</h2>");
-      placesToVisitEl.innerHTML += ("<b><u>Address:</u></b><br>" + item.address);
+
+      var itemBodyString = ("<div class=placeToVisitItem><h2>" + item.name + "</h2></div>");
+      itemBodyString += ("<div class=placeToVisitItemBody><b><u>Address:</u></b><br>" + item.address);
 
       if (item.website) {
-            placesToVisitEl.innerHTML += ("<br><b><u>Website address:<br></u></b>" + "<a href=\"" + item.address + "\" target=\"_blank\">" + item.website + "</a>");
-          } else {
-            item.website = "No website address available";
-            placesToVisitEl.innerHTML += ("<br><b><u>Website address:<br></u></b>" + item.website);
-          }
+             itemBodyString += ("<br><b><u>Website address:<br></u></b>" + "<a href=\"" + item.address + "\" target=\"_blank\">" + item.website + "</a>");
+            } else {
+              item.website = "No website address available";
+              itemBodyString += ("<br><b><u>Website address:<br></u></b>" + item.website);
+            }
+  
+            itemBodyString += ("<br><b><u>Phone number:<br></u></b>" + item.phoneNumber + "<br><br></div>");
+            placesToVisitEl.innerHTML += itemBodyString;
 
-          placesToVisitEl.innerHTML += ("<br><b><u>Phone number:<br></u></b>" + item.phoneNumber + "<br><br></div>");
+      // placesToVisitEl.innerHTML += ("<div class=placeToVisitItem><h2>" + item.name + "</h2></div>");
+      // placesToVisitEl.innerHTML += ("<div class=placeToVisitItemBody><b><u>Address:</u></b><br>" + item.address);
+
+      // if (item.website) {
+      //       placesToVisitEl.innerHTML += ("<br><b><u>Website address:<br></u></b>" + "<a href=\"" + item.address + "\" target=\"_blank\">" + item.website + "</a>");
+      //     } else {
+      //       item.website = "No website address available";
+      //       placesToVisitEl.innerHTML += ("<br><b><u>Website address:<br></u></b>" + item.website);
+      //     }
+
+      //     placesToVisitEl.innerHTML += ("<br><b><u>Phone number:<br></u></b>" + item.phoneNumber + "<br><br></div>");
 
         })
     
@@ -187,7 +201,7 @@ document.getElementById("checkItinerary").addEventListener("click", function () 
   }
 
 
-})
+}
 
 
 clearButton = document.getElementById("clearButton");
@@ -244,17 +258,5 @@ var visitButton = document.getElementById("flightButton");
      });
 
 
-
-
-// Function to handle the navigation bar based on screen width
-// function handleNavbar() {
-//   if (window.innerWidth < 768) {
-//       // Small screen: Show horizontal navigation bar on top
-//       document.querySelector('.navbar').classList.remove('flex-column');
-//   } else {
-//       // Large screen: Show vertical navigation bar
-//       document.querySelector('.navbar').classList.add('flex-column');
-//   }
-// }
-
-// window.addEventListener('resize', handleNavbar);
+//initial population
+populateThingsToDo();
