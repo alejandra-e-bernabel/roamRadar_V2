@@ -87,5 +87,16 @@
   .restaurantQuestions {
     padding: 25px;
   }
+
+  .tableItemName {
+    font-size: x-large;
+    font-family: 'Montserrat', sans-serif;
+    font-style: italic;
+    text-align: center;
+
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+}
   
   

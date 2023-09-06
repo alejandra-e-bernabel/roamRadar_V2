@@ -48,11 +48,28 @@
 	}
 
     function createMarker(restaurant) {
-        // console.log(restaurant);
+        console.log(restaurant);
         var table = document.getElementById("restaurants");
         var row = table.insertRow();
         var cell1 = row.insertCell(0);
-        cell1.innerHTML = restaurant.name;
+
+        var htmlString = ("<div class = tableItemName>" + restaurant.name + "</div><br>");
+
+        if (!restaurant.rating) {
+            restaurant.rating = "No rating available";
+        }
+        htmlString += ("<div class=itemInformation><b><u>Rating:</u></b>" + restaurant.rating);
+
+        // if (restaurant.website) {
+        //     htmlString += ("<a href=\"" + restaurant.website + "\" target=\"_blank\">Website address</a>");
+        // } else {
+        //     restaurant.website = "No website address available";
+        //     htmlString += ("<b><u>Website address:</u></b>" + restaurant.website);
+        // }
+        
+        cell1.innerHTML = htmlString;
+
+        // cell1.innerHTML = restaurant.name;
         if(restaurant.photos) {
             var image = document.createElement("img");
             image.src = restaurant.photos[0].getUrl();
@@ -72,15 +89,14 @@
             cell2.innerHTML = image.outerHTML;
             }
         }
+
     document.getElementById("type").onchange = searchNearbyRestaurants;
-    
     
     function addButton() {
         var groupId = document.querySelectorAll('table');
         groupID.forEach(row => {
             groupID.addEventListener("click", saveGroupToLocalStorage);
         });
-    
 
     function saveGroupToLocalStorage(event) {
         var group = event.currentTarget;
