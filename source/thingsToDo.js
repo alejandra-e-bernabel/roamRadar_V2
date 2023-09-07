@@ -132,6 +132,7 @@ function createMarker(place) {
 
             cell1.innerHTML = htmlString;
 
+            addButton();
 
             //saves location ID as the class of the item
 
@@ -187,12 +188,16 @@ function createMarker(place) {
 document.getElementById("type").onchange = searchNearbyPlaces;
 
 function addButton() {
-    const rows = document.querySelectorAll('button');
+    const rows = document.querySelectorAll('.addItem');
+    
+    console.log("This many rows were grabbed" + rows.length);
     // Add event listener to each row
-    rows.forEach(function (button, index) {
-        if (index != 0) {
+    rows.forEach(function (button) {
+        button.style.backgroundColor = "red";
+        // if (index != 0) {
             button.addEventListener("click", saveRowToLocalStorage);
-        }
+            console.log("button was added");
+        // }
 
     });
 
@@ -201,10 +206,12 @@ function addButton() {
         // Get the row that was clicked
         const row = event.currentTarget;
 
+        console.log("button was clicked");
+
         row.style.background = "beige";
 
         // Get the content of the row
-        const content = row.classList.toString();
+        const content = row.id;
 
         retrieveDetailsByID(content)
             .then((place) => {

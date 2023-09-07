@@ -112,6 +112,8 @@
     function addButton() {
         const groupId = document.querySelectorAll('button');
         groupId.forEach(button => {
+            //temporary way to check which buttons were grabbed
+            button.style.backgroundColor = "red";
             button.addEventListener("click", saveGroupToLocalStorage);
         });
 
