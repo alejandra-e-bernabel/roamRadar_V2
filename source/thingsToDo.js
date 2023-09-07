@@ -114,21 +114,25 @@ function createMarker(place) {
                 place.formatted_phone_number = "No phone number available";
             }
 
-            var htmlString = ("<div class = tableItemName>" + place.name + "</div><br>");
-
-
-            htmlString += ("<div class=itemInformation><b><u>Address:</u></b>" + place.formatted_address + "<b><u>Rating:</u></b>" + place.rating);
+            var htmlString = ("<div class = tableItemName>" + place.name + "</div><div class=visitWebsiteButton>");
 
             if (place.website) {
-                htmlString += ("<a href=\"" + place.website + "\" target=\"_blank\">Website address</a>");
+                htmlString += ("<a class=\"tableButton btn btn-dark btn-sm\" href=\"" + place.website + "\" target=\"_blank\" rel=\"noopener noreferrer\">Visit website</a>");
             } else {
                 place.website = "No website address available";
-                htmlString += ("<b><u>Website address:</u></b>" + place.website);
+                // htmlString += ("<b><u>Website address:</u></b> " + place.website);
             }
 
-            htmlString += ("<b><u>Phone number:</u></b>" + place.formatted_phone_number + "</div>");
+            htmlString += ("<button type=button id=" + place.place_id +" class=\"tableButton addItem btn btn-warning btn-sm\">Add to Itinerary</button></div>");
+
+
+            htmlString += ("<div class=itemInformation><p><b><u>Address</u></b>: " + place.formatted_address + "</p><p><b><u>Rating</u></b>: " + place.rating + "</p>");
+
+            htmlString += ("<p><b><u>Phone number</u></b>: " + place.formatted_phone_number + "</p></div>");
 
             cell1.innerHTML = htmlString;
+
+
             //saves location ID as the class of the item
 
 
@@ -142,7 +146,6 @@ function createMarker(place) {
                 cell2.innerHTML += ("<br>" + place.opening_hours.weekday_text[4]);
                 cell2.innerHTML += ("<br>" + place.opening_hours.weekday_text[5]);
                 cell2.innerHTML += ("<br>" + place.opening_hours.weekday_text[6]);
-
 
             } else {
                 cell2.innerHTML = "No hours available";
@@ -183,16 +186,12 @@ function createMarker(place) {
 
 document.getElementById("type").onchange = searchNearbyPlaces;
 
-
 function addButton() {
-
-    // Select all table rows
-    const rows = document.querySelectorAll('table tr');
-
+    const rows = document.querySelectorAll('button');
     // Add event listener to each row
-    rows.forEach(function (row, index) {
+    rows.forEach(function (button, index) {
         if (index != 0) {
-            row.addEventListener("click", saveRowToLocalStorage);
+            button.addEventListener("click", saveRowToLocalStorage);
         }
 
     });
@@ -202,7 +201,7 @@ function addButton() {
         // Get the row that was clicked
         const row = event.currentTarget;
 
-        row.style.background = "aliceblue";
+        row.style.background = "beige";
 
         // Get the content of the row
         const content = row.classList.toString();

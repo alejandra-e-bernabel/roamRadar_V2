@@ -4,20 +4,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-  <!-- <link  rel="stylesheet" type="text/css" href="./css/style.css"/> -->
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300&family=Raleway:ital@1&display=swap"
-    rel="stylesheet">
-
-  <!-- <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet"> -->
-  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Pacifico&display=swap"
-  rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,500;1,600;1,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Pacifico&display=swap" rel="stylesheet">
+  
   <link rel="stylesheet" type="text/css" href="./css/thingsToDo.css" />
-
   <link rel="stylesheet" href="css/navbar.css" />
 
 
@@ -25,7 +21,7 @@
 </head>
 
 <body>
-<!-- 
+  <!-- 
   <nav class="sidenav">
     <ul>
       <li><img src="images/ROAMRADAR Logo PNG.png" id="logo" /></li>
@@ -54,39 +50,42 @@
     </div>
   </nav> -->
 
-  <div class = backgroundHeader>
+  <div class=backgroundHeader>
     <h1 class="header">Places to Visit</h1>
   </div>
-  <div class="thingsToDoContent Text">    
-
+  <div class="thingsToDoContent ">
 
     <div id="map"></div>
-    <div class="form-group">
 
+    <div class="placesToVisitQuestions">
 
-      <label class=formPrompt for="location">Where are you off to?</label>
-      <input type="text" class="form-control" id="autocomplete" placeholder="Enter location">
+      <div class="form-group">
+        <label class=formPrompt for="location">Where are you off to?</label>
+        <input type="text" class="form-control" id="autocomplete" placeholder="Enter location">
+      </div>
+      <br>
+      <div class="form-group">
+        <label class=formPrompt for="type">What kind of entertainment are you looking for?</label>
+        <select class="form-control" name="" id="type">
+          <option id="travel_agency">travel_agency</option>
+          <option id="amusement_park">amusement_park</option>
+          <option id="aquarium">aquarium</option>
+          <option id="museum">museum</option>
+          <option id="movie_theater">movie_theater</option>
+          <option id="night_club">night_club</option>
+          <option id="bar">bar</option>
+
+        </select>
+      </div>
+
     </div>
-    <br>
-    <div class="form-group">
-      <label class=formPrompt for="type">What kind of entertainment are you looking for?</label>
-      <select class="form-control" name="" id="type">
-        <option id="travel_agency">travel_agency</option>
-        <option id="amusement_park">amusement_park</option>
-        <option id="aquarium">aquarium</option>
-        <option id="museum">museum</option>
-        <option id="movie_theater">movie_theater</option>
-        <option id="night_club">night_club</option>
-        <option id="bar">bar</option>
 
-      </select>
-    </div>
 
     <br>
     <div class="buttonRow">
 
       <!-- <button type="button" class=" centerContent btn btn-light" id="deletePreviousItem">Delete Previous Item</button> -->
-      <a class="button btn btn-info" href="navbar.html">Return to Home</a>    
+      <a class="button btn btn-info" href="navbar.html">Return to Home</a>
       <button type="button" class="button btn btn-warning" id="clearButton">Clear itinerary</button>
       <!-- <a class = "btn btn-light" href="navbar.html#alejandra-intro">Check Current Itinerary</a> -->
 
@@ -94,12 +93,12 @@
     <br>
 
     </table>
-    <table class="table table-bordered table-hover" id="places">
-      <h3>Click on rows to add destination to your itinerary:</h3>
-      <tr>
-        <!-- <th>
+    <table class="table table-bordered table-striped" id="places">
+      <!-- <h5>Click on rows to add destination to your itinerary:</h5> -->
+      <!-- <tr>
+        <th>
                     Add to Itinerary
-                </th> -->
+                </th>
         <th>
           Contact information
         </th>
@@ -111,7 +110,7 @@
         <th class="hide-on-medium">
           Location Image
         </th>
-      </tr>
+      </tr> -->
 
     </table>
 

@@ -21,7 +21,7 @@
 		// console.log("Selected searchNearbyRestaurants");
 
         //this grabs the table item from html and clears it out
-        document.getElementById('restaurants').innerHTML = "<tr><th><h1>Location Information</h1></th><th><h1>Image</h1></th></tr>";
+        document.getElementById('restaurants').innerHTML = "<tr><th><b>Contact Information</b></th><th><b>Location Image</b></th></tr>";
 
         var restaurant = autocomplete.getPlace();
 
@@ -49,7 +49,7 @@
 	}
 
     function createMarker(restaurant) {
-        console.log(restaurant);
+        // console.log(restaurant);
         var table = document.getElementById("restaurants");
         var row = table.insertRow();
         var cell1 = row.insertCell(0);
@@ -101,18 +101,10 @@
             image.height = 150;
             image.style.borderRadius = 50; 
             cell2.innerHTML = image.outerHTML;
-            cell2.innerHTML += ("<div class=buttonContainer><button type=button class=\"form-control btn btn-warning\">Add to Itinerary</button></div>");
+            cell2.innerHTML += ("<div class=buttonContainer><button type=button id=" + restaurant.place_id +" class=\"addItem form-control btn btn-warning\">Add to Itinerary</button></div>");
 
             }
 
-
-
-
-        //  var buttonRow = document.createElement ("tr");
-        //  var buttonCell = buttonRow.insertCell;
-        //  buttonCell.colSpan = table.rows[0].cells.length;
-        //  buttonCell.innerHTML = "button here";
-        //  table.appendChild(buttonRow);
         }
 
     document.getElementById("type").onchange = searchNearbyRestaurants;
@@ -125,7 +117,7 @@
 
     function saveGroupToLocalStorage(event) {
 
-        console.log("button was clicked");
+        // console.log("button was clicked");
         var group = event.currentTarget;
 
         group.style.background ="white";
@@ -147,16 +139,14 @@
 
                 localStorage.setItem("tempRestautantInfo", tempRestaurant);
 
-                var jsonString = localStorage.getItem("tempRestautantInfo");
-                JSON.parse(jsonString);
-                console.log("from jsonstring:" + JSON.parse(jsonString).name);
+                // var jsonString = localStorage.getItem("tempRestautantInfo");
+                // JSON.parse(jsonString);
+                // console.log("from jsonstring:" + JSON.parse(jsonString).name);
                 // var placeToSave = JSON.parse(jsonString);
 
 
         const restaurantId = generateUniqId();
 
-
-        //I AM HERE
         let isContSaved = false;
         for(let i =0; i < localStorage.length; i++) {
             const storedCont = localStorage.getItem(localStorage.key(i));

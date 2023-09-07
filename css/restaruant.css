@@ -76,13 +76,16 @@
     margin-left: auto;
     
   }
+
   a.nav-link{
       text-decoration: none;
       font-weight: bolder;
   }
+  
   .nav-item{
    margin-bottom: 25px;
   }
+  
   #goToItinerary a{
   text-decoration: none;
   }
@@ -115,3 +118,6 @@ td {
   vertical-align: middle;
 }
   
+label {
+  font-weight: 700;
+}
