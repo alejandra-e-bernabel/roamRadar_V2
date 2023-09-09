@@ -295,8 +295,6 @@ clearButton.addEventListener("click", function () {
 
         var savedKeys = JSON.parse(localStorage.getItem('savedKeys'));
 
-        // console.log(savedKeys);
-
         if (savedKeys) {
             savedKeys.forEach(function (e) {
                 localStorage.removeItem(e);
@@ -335,3 +333,4 @@ function retrieveDetailsByID(Id) {
   });
 
 }
+

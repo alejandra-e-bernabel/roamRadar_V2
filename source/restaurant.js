@@ -113,7 +113,7 @@
         const groupId = document.querySelectorAll('button');
         groupId.forEach(button => {
             //temporary way to check which buttons were grabbed
-            button.style.backgroundColor = "red";
+            // button.style.backgroundColor = "red";
             button.addEventListener("click", saveGroupToLocalStorage);
         });
 
@@ -203,22 +203,20 @@ function retrieveDetailsByID(Id) {
 }
 
   clearAllButton = document.getElementById("clearAllButton");
-//   clearAllButton.addEventListener("click", function () {
-//     var restaurantTables = document.querySelectorAll(".restaurantTable");
-//     restaurantTables.forEach(function (restaurantTable) {
-//         restaurantTable.style.background = "#87CEFA";
+  clearAllButton.addEventListener("click", function () {
+    var restaurantTables = document.querySelectorAll(".restaurantTable");
+    restaurantTables.forEach(function (restaurantTable) {
+        restaurantTable.style.background = "beige";
 
-//         var inputKeys = JSON.parse(localStorage.getItem('inputKeys'));
+        var inputKeys = JSON.parse(localStorage.getItem('inputKeys'));
     
-//     console.log(inputKeys);
-
-//     if (inputKeys) {
-//         inputKeys.forEach(function (event) {
-//             localStorage.removeItem(event);
-//         });
-//     }
+    if (inputKeys) {
+        inputKeys.forEach(function (event) {
+            localStorage.removeItem(event);
+        });
+    }
        
-//   });
-//   localStorage.removeItem("inputKeys");
-//   localStorage.setItem('inputKeys',JSON.stringify([]));
-// });
+  });
+  localStorage.removeItem("inputKeys");
+  localStorage.setItem('inputKeys',JSON.stringify([]));
+});
