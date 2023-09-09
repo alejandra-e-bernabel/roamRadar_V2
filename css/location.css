@@ -33,13 +33,7 @@
     align-items: center; */
   
   }
-  
-  #floatingInput {
-    /* margin-bottom: 20px;
-    margin-left: 450px; */
-    /* width: 30%; */
-  }
-  
+   
   
   #floatingInput::placeholder {
     color: gray;
@@ -73,7 +67,7 @@
     font-size: 20px;
     font-weight: 800;
   
-    width: 30%;
+    width: 50%;
   }
   
   /* button:hover {
@@ -88,7 +82,7 @@
   
   #logo {
     width:auto; 
-    height:200px
+    height:150px
   
   }
   

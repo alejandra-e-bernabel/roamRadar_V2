@@ -45,6 +45,7 @@ td, th {
 
 .openHoursCell {
     min-width: 250px;
+    vertical-align: middle;
 }
 
 /* th {
@@ -109,13 +110,9 @@ td {
 
 .buttonRow{
     display: flex;
-    /* justify-content: space-around; */
-    /* text-align: center; */
     justify-content: center;
     text-align: center;
 }
-
-
 
 @media screen and (max-width: 768px) {
     .hide-on-medium {
