@@ -50,9 +50,10 @@ body {
 
 .trackerContainer {
     display: flex;
+    flex-wrap: wrap;
     /* justify-content: space-around; */
 
-    gap:30px;
+    gap:10px;
     justify-content: center;
     align-items: center;
 }
