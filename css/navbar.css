@@ -32,7 +32,7 @@ body {
 
 /* For small screens */
 @media (max-width: 767px) {
-  .index-page #navbar {
+   #navbar {
     display: flex;
     flex-wrap: wrap; 
     justify-content: space-between; /
@@ -60,8 +60,7 @@ body {
 
 /* For large screens */
 @media (min-width: 768px) {
-
-  .index-page body {
+  .index-page {
     display: flex;
   }
 
@@ -99,10 +98,7 @@ body {
 }
 
 
-
 /* (START OF NICOLE'S PORTION) */
-
-
 
   .nicoleIntro {
     padding-top:0px;
