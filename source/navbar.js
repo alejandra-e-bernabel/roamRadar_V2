@@ -1,6 +1,19 @@
+// Smooth scrolling for navigation links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    e.preventDefault();
+
+    document.querySelector(this.getAttribute('href')).scrollIntoView({
+      behavior: 'smooth'
+    });
+  });
+});
+
+
+
 // (START OF NICOLES PORTION)
 
-console.log("entered navbar js");
+// console.log("entered navbar js");
 
 var outputTitle = document.getElementById("outputTitle");
 var outputStart = document.getElementById("outputStart");
@@ -77,62 +90,7 @@ function initMap() {
 
 function getPlaceDetails(placeId) {
    placesToVisitEl = document.getElementById("thingsToDoItemized");
-
-  
-
-      //     placesToVisitEl.innerHTML += ("<div class=placeToVisitItem><h2>" + place.name + "</h2>");
-      //     placesToVisitEl.innerHTML += ("<b><u>Address:</u></b><br>" + place.formatted_address + "<br><b><u>Rating:<br></u></b>" + place.rating);
-
-      //     if (place.website) {
-      //       placesToVisitEl.innerHTML += ("<br><b><u>Website address:<br></u></b>" + "<a href=\"" + place.website + "\" target=\"_blank\">" + place.website + "</a>");
-      //     } else {
-      //       place.website = "No website address available";
-      //       placesToVisitEl.innerHTML += ("<br><b><u>Website address:<br></u></b>" + place.website);
-      //     }
-
-      //     placesToVisitEl.innerHTML += ("<br><b><u>Phone number:<br></u></b>" + place.formatted_phone_number + "<br><br></div>");
 }
-//   // Create a new PlacesService instance
-//   const placesService = new google.maps.places.PlacesService(document.createElement('div'));
-
-//   // Define the desired fields for place details
-//   const fields = ["name", "formatted_address", "rating", "opening_hours", "photos", "website", "geometry", "formatted_phone_number", "user_ratings_total"];
-
-//   // Call the getDetails method to retrieve the place details
-//   placesService.getDetails({
-//     placeId: placeId,
-//     fields: fields
-//   }, (placeResult, status) => {
-//     if (status === google.maps.places.PlacesServiceStatus.OK) {
-//       console.log(placeResult); // for testing purposes, you can modify this to do whatever you want with the place details
-//     } else {
-//       console.error(status);
-//     }
-//   });
-// }
-
-// function getPlaceDetails(Id) {
-
-//   return new Promise((resolve, reject) => {
-//     let request = {
-//       placeId: Id,
-//       fields: ["name", "formatted_address", "rating", "opening_hours", "photos", "website", "geometry", "formatted_phone_number", "user_ratings_total"]
-//     };
-
-//     let service = new google.maps.places.PlacesService(map);
-
-//     service.getDetails(request, (place, status) => {
-//       if (status === google.maps.places.PlacesServiceStatus.OK) {
-//         resolve(place); // Resolve the promise with the place details
-//       }
-//       else {
-//         reject(new Error(status)); // Reject the promise with an error
-//       }
-//     });
-//   });
-
-// }
-
 
  function populateThingsToDo () {
   var savedKeys = JSON.parse(localStorage.getItem('savedKeys'));
@@ -252,10 +210,10 @@ var visitButton = document.getElementById("flightButton");
     //  budgetButton.addEventListener("click", function () {
     //    window.location.href = "itinerary.html";
     //  });
-     var resturantButton = document.getElementById("goToRestaurants");
-     resturantButton.addEventListener("click", function () {
-       window.location.href = "restaurant.html";
-     });
+    //  var resturantButton = document.getElementById("goToRestaurants");
+    //  resturantButton.addEventListener("click", function () {
+    //    window.location.href = "restaurant.html";
+    //  });
 
 
 //initial population
