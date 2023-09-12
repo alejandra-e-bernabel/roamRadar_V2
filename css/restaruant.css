@@ -5,10 +5,6 @@
     font-family: 'Montserrat', sans-serif;
     font-style: normal;
     font-weight: 300;
-    /* color: #07458F;#3CACAE */
-    /* color:white; */
-  
-  
   }
   
  body {
@@ -16,29 +12,9 @@
  }
 
   .container{
-    /* z-index: 2; */
-
     margin: 0px;
     padding: 0px;
-    
-    
-  /* padding-top: auto; */
-  /* padding: botton 20px;
-  margin: 50px; */
-  /* align-content:space-around; */
   }
-  
-  h1 {
-      /* color: black; */
-  }
-/*   
-  .Text {
-    margin-left: 200px;
-  }
-  .form-group{
-    margin-left: 200px;
-  
-  } */
 
   .buttonGroup {
     display:flex;
@@ -68,13 +44,11 @@
   text-shadow:2px 2px 2px rgb(255, 203, 72);
 }
 
-  
   .table {
     background-color:beige;
     max-width: fit-content;
     margin-right: auto;
-    margin-left: auto;
-    
+    margin-left: auto;  
   }
 
   a.nav-link{
@@ -102,10 +76,8 @@
     font-family: 'Montserrat', sans-serif;
     font-style: italic;
     text-align: center;
-
     display: flex;
     justify-content: center;
-    /* align-items: center; */
 }
 
 h1 {

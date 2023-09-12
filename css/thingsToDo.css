@@ -3,10 +3,6 @@
     padding: 0;
     margin: 0;
     font-family: 'Montserrat', sans-serif;
-
-    /* font-family: 'Inter', sans-serif; */
-    /* font-family: 'Raleway', sans-serif; */
-
 }
 
 body {
@@ -26,9 +22,6 @@ body {
 }
 
 table {
-    /* border-collapse:separate; */
-    /* border:solid black 1px; */
-    /* border-radius:15px; */
     background-color:beige;
     word-wrap: break-word;
     max-width: fit-content;
@@ -36,29 +29,15 @@ table {
     margin-left: auto;
 }
 
-td, th {
-    /* border-left:solid black 1px;
-    border-top:solid black 1px; */
-}
-
-
-
 .openHoursCell {
     min-width: 250px;
     vertical-align: middle;
 }
 
-/* th {
-    background-color: blue;
-    border-top: none;
-} */
-
 .itemInformation {
-    /* background-color: hotpink; */
     display: flex;
     flex-direction: column;
     justify-content: center;
-    /* align-items: center; */
 }
 
 
@@ -84,13 +63,9 @@ label {
     font-family: 'Montserrat', sans-serif;
     font-style: italic;
     text-align: center;
-
-    /* background-color: white; */
-    /* background-color:rgb(255, 228, 158); */
     text-shadow:2px 2px 2px rgb(255, 203, 72);
     display: flex;
     justify-content: center;
-    /* align-items: center; */
 }
 
 td {
@@ -98,8 +73,6 @@ td {
 }
 
 .thingsToDoContent {
-    /* margin-left: 200px; */
-    /* padding-right: 2rem; */
     padding: 20px;
 }
 
@@ -119,10 +92,7 @@ td {
       display: none;
     }
   }
-
-
-
-  
+ 
   .placesToVisitQuestions {
     /* padding: 30px; */
     max-width: 1000px;
@@ -137,12 +107,3 @@ td {
     margin: 5px;
     margin-bottom: 15px;
   }
-
-/* 
-.backgroundHeader {
-    background-image: url("/images/Boardwalk\ over\ ocean.jpg");
-    height:400px;
-    width:100%;
-    background-size: cover;
-    background-position: 100%;
-} */

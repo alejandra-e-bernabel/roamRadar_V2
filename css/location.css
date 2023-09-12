@@ -4,15 +4,10 @@
   }
   body {
     background-image: url(../images/beautiful-tropical-beach-sea.jpg);
-    /* background-size: cover; */
-    /* background-repeat: no-repeat; */
-    /* overflow-x: hidden; */
     background-position: 100% -40px;
-  
     height: 100%;
     width: 100%;
     background-position: 80% 50%;
-  
   }
   
   .header {
@@ -20,7 +15,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-  
     margin-top: 50px;
     margin-bottom: 30px;
   }
@@ -28,10 +22,6 @@
   h1 {
     font-size: 60px;
     font-family: 'Dancing Script', cursive;
-    /* display: flex;
-    justify-content: center;
-    align-items: center; */
-  
   }
    
   
@@ -47,7 +37,6 @@
   
   #floatingInputGrid2 {
     width: 100%;
-    /* margin-left: 10px; */
   }
   .form-floating {
     color: darkblue;
@@ -62,37 +51,28 @@
     background-color: lightblue;
     border-radius: 15px;
     padding: 15px;
-    /* margin-left: 570px;
-    margin-top: 70px; */
     font-size: 20px;
     font-weight: 800;
   
     width: 50%;
   }
   
-  /* button:hover {
-    background-color: #c69419;
-  } */
   #warning {
     color: yellow;
     text-align: center;
     margin-top: -215px;
   }
-  
-  
+
   #logo {
     width:auto; 
     height:150px
   
   }
   
-  .logoContainer { 
-     
+  .logoContainer {   
     display: flex;
     justify-content: flex-end;
-  
     margin-right: 0px;
-  
   }
   
   .container {
@@ -106,16 +86,11 @@
   
   .floatingInputContainer {
     padding: 20px;
-  
     display: flex;
     justify-content: center;
-  
     flex-wrap: wrap;
     gap: 20px;
-    
     width: 100%;
-  
-    
   }
   
   
