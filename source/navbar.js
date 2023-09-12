@@ -75,22 +75,15 @@ function replacePlacesToVisit() {
   }
 }
 
-function initMap() {
-  var chosenLocation = JSON.parse(localStorage.getItem("chosen Location"));
-  console.log("the chosen location is " + chosenLocation.location);
+// function initMap() {
+//   var chosenLocation = JSON.parse(localStorage.getItem("chosen Location"));
+//   console.log("the chosen location is " + chosenLocation.location);
 
-  map = new google.maps.Map(document.getElementById("map"), {
-    center: google.maps.LatLng(0, 0),
-    zoom: 15
-  });
-  
-}
-
-
-
-function getPlaceDetails(placeId) {
-   placesToVisitEl = document.getElementById("thingsToDoItemized");
-}
+//   map = new google.maps.Map(document.getElementById("map"), {
+//     center: google.maps.LatLng(0, 0),
+//     zoom: 15
+//   });
+// }
 
  function populateThingsToDo () {
   var savedKeys = JSON.parse(localStorage.getItem('savedKeys'));
@@ -99,21 +92,10 @@ function getPlaceDetails(placeId) {
     thingsToDoElement = document.getElementById("thingsToDoItemized")
     thingsToDoElement.innerHTML = "";
 
-    // thingsToDoElement.innerHTML += ("<h3 class=noColor>Want to edit your itinerary?</h3>")
-    // thingsToDoElement.innerHTML += ("<div class = thingsToDoItemized><button type=\"button\" id=\"placesToVisitButton\" class=\"btn btn-info\">Places to visit</button>");
-    // thingsToDoElement.innerHTML += ("<button type = \"button\" id = \"checkItinerary\" class=\"btn btn-info\">Show Itinerary</button></div>");
-
-
-
     savedKeys.forEach(function (key) {
       console.log ("Key is" + key);
       var item = localStorage.getItem(key);
       item = JSON.parse(item);
-
-      // getPlaceDetails(item);
-
-      // getPlaceDetails(item)
-      //   .then((place) => {
 
       placesToVisitEl = document.getElementById("thingsToDoItemized");
 
@@ -129,18 +111,6 @@ function getPlaceDetails(placeId) {
   
             itemBodyString += ("<br><b><u>Phone number:<br></u></b>" + item.phoneNumber + "<br><br></div>");
             placesToVisitEl.innerHTML += itemBodyString;
-
-      // placesToVisitEl.innerHTML += ("<div class=placeToVisitItem><h2>" + item.name + "</h2></div>");
-      // placesToVisitEl.innerHTML += ("<div class=placeToVisitItemBody><b><u>Address:</u></b><br>" + item.address);
-
-      // if (item.website) {
-      //       placesToVisitEl.innerHTML += ("<br><b><u>Website address:<br></u></b>" + "<a href=\"" + item.address + "\" target=\"_blank\">" + item.website + "</a>");
-      //     } else {
-      //       item.website = "No website address available";
-      //       placesToVisitEl.innerHTML += ("<br><b><u>Website address:<br></u></b>" + item.website);
-      //     }
-
-      //     placesToVisitEl.innerHTML += ("<br><b><u>Phone number:<br></u></b>" + item.phoneNumber + "<br><br></div>");
 
         })
     
@@ -166,7 +136,6 @@ clearButton = document.getElementById("clearButton");
 
 clearButton.addEventListener("click", function () {
   console.log("clearItinerary clicked");
-  const tables = document.querySelectorAll("table tr");
 
   var savedKeys = JSON.parse(localStorage.getItem('savedKeys'));
 
@@ -178,12 +147,14 @@ clearButton.addEventListener("click", function () {
     });
   }
 
+  if (localStorage.getItem("tempPlaceInfo")) {
+    localStorage.removeItem("tempPlaceInfo");
+  }
+
   localStorage.removeItem("savedKeys");
 
     placesToVisitEl = document.getElementById("thingsToDoItemized");
     placesToVisitEl.innerHTML = ("<h5>It looks like you haven't added anything to your itinerary yet. Try looking for some places to visit!</h5>");
-
-
 
 
 });
@@ -215,6 +186,84 @@ var visitButton = document.getElementById("flightButton");
     //    window.location.href = "restaurant.html";
     //  });
 
+    //RESTAURANT SECTION
+
+    var clearRestaurantsButton = document.getElementById("clearRestaurantsButton");
+
+    clearRestaurantsButton.addEventListener("click", function () {
+    
+      var inputKeys = JSON.parse(localStorage.getItem('inoutKeys'));
+    
+      console.log(inputKeys);
+    
+      if (inputKeys) {
+        inputKeys.forEach(function (e) {
+          localStorage.removeItem(e);
+        });
+      }
+
+      if (localStorage.getItem("tempRestautantInfo")) {
+        localStorage.removeItem("tempRestaurantInfo");
+      }
+    
+      localStorage.removeItem("inputKeys");
+    
+      var restaurantsItemized = document.getElementById("restaurantsItemized");
+      restaurantsItemized.innerHTML = ("<h5>It looks like you haven't added anything to your restuarant itinerary yet. Try looking for some places to visit!</h5>");
+    
+    
+    });
+    
+ function populateRestaurants () {
+  var inputKeys = JSON.parse(localStorage.getItem('inputKeys'));
+
+  if (inputKeys) {
+    thingsToDoElement = document.getElementById("restaurantsItemized")
+    thingsToDoElement.innerHTML = "";
+
+    inputKeys.forEach(function (key) {
+      console.log ("Key is" + key);
+      var item = localStorage.getItem(key);
+      item = JSON.parse(item);
+
+      placesToVisitEl = document.getElementById("restaurantsItemized");
+
+      var itemBodyString = ("<div class=placeToVisitItem><h2>" + item.name + "</h2></div>");
+      itemBodyString += ("<div class=placeToVisitItemBody><b><u>Address:</u></b><br>" + item.address);
+
+      if (item.website) {
+             itemBodyString += ("<br><b><u>Website address:<br></u></b>" + "<a href=\"" + item.address + "\" target=\"_blank\">" + item.website + "</a>");
+            } else {
+              item.website = "No website address available";
+              itemBodyString += ("<br><b><u>Website address:<br></u></b>" + item.website);
+            }
+  
+            itemBodyString += ("<br><b><u>Phone number:<br></u></b>" + item.phoneNumber + "<br><br></div>");
+            placesToVisitEl.innerHTML += itemBodyString;
+
+        })
+    
+
+    // var visitButton = document.getElementById("placesToVisitButton");
+    // visitButton.addEventListener("click", function () {
+    //   window.location.href = "thingsToDo.html";
+    // })
+
+  }
+
+  else {
+    placesToVisitEl = document.getElementById("thingsToDoItemized");
+    placesToVisitEl.innerHTML = ("<h5>It looks like you haven't added anything to your itinerary yet. Try looking for some places to visit!</p>");
+  }
+
+
+}
+
+    var visitButton = document.getElementById("restaurantsButton");
+    visitButton.addEventListener("click", function () {
+      window.location.href = "restaurant.html";
+    })
 
 //initial population
 populateThingsToDo();
+populateRestaurants();
