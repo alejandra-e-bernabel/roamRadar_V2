@@ -2,11 +2,11 @@
     box-sizing:border-box;
     padding: 0px;
     margin: 0px;
-    font-size: 25px;
+    font-size: 20px;
     
     text-align: center;
     font-family: 'Inter',sans-serif;
-    font-style: normal;
+    /* font-style: normal; */
     font-weight: 300;
 }
 
@@ -67,7 +67,7 @@ margin-top: 20%;
 .textContainer {
     background-color:white;
     width: fit-content;
-    min-width: 600px;
+    min-width: 500px;
     border-radius: 20px;
     padding: 50px;
 }
@@ -75,6 +75,8 @@ margin-top: 20%;
 @media (max-width: 767px) {
     .textContainer {
         padding: 10px;
+        padding-left: 40px;
+        padding-right: 40px;
     }
 
     .logo{
