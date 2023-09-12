@@ -68,6 +68,17 @@ margin-top: 20%;
     background-color:white;
     width: fit-content;
     min-width: 600px;
-    padding: 50px;
     border-radius: 20px;
+    padding: 50px;
+}
+
+@media (max-width: 767px) {
+    .textContainer {
+        padding: 10px;
+    }
+
+    .logo{
+        width:auto; 
+        height:125px;
+    }
 }
