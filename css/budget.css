@@ -45,8 +45,8 @@ body {
 }
 
 #expenseList {
-    margin: 20px;
-    padding:20px;
+    margin: 5px;
+    padding: 5px;
     background-color:  rgba(160, 209, 255, 0.4);
     border-radius: 10px;
     display: flex;
