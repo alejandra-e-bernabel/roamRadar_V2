@@ -2,8 +2,6 @@ const flightInfoDisplay = document.getElementById("flightInfoDisplay");
 
 
 document.addEventListener('DOMContentLoaded', () => {
-
-    // const openPopupButton = document.getElementById('openPopup');
     const closePopupButton = document.querySelector('.close');
     const flightInfoElement = document.getElementById('flightInfo');
     const airlineInput = document.getElementById('airlineInput');
@@ -33,11 +31,6 @@ document.addEventListener('DOMContentLoaded', () => {
         $(this).val('');
     });
 
-
-    // openPopupButton.addEventListener('click', () => {
-    //     $('#flightInfoModal').modal('show');
-    // });
-
     closePopupButton.addEventListener('click', () => {
         $('#flightInfoModal').modal('hide');
     });
@@ -63,7 +56,6 @@ document.addEventListener('DOMContentLoaded', () => {
 function populateFlights () {
     if (localStorage.getItem("flightInfo")) {
         const savedFlightInfo = JSON.parse(localStorage.getItem("flightInfo"));
-        console.log (savedFlightInfo);
         flightInfoDisplay.innerHTML = "<p><b>Airline:</b> " + savedFlightInfo.airline + "</p>";
         flightInfoDisplay.innerHTML += "<p><b>Flight Number:</b> " + savedFlightInfo.flightNumber + "</p>";
         flightInfoDisplay.innerHTML += "<p><b>Flight Dates:</b> " + savedFlightInfo.selectedStartDate + "</p>";

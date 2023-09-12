@@ -6,20 +6,8 @@
         });
         autocomplete.addListener('place_changed', searchNearbyRestaurants);
 	}	
-        // function initializeMap() {
-        //     var initialLocation = { lat:28.381234066504312, lng:-81.61096094887043};
-        //     var map = new google.maps.Map(document.getElementById('map'),{
-        //         center: initialLocation,
-        //         zoom: 10
-        //     });
-        // }
-    
-    // function searchNearbyRestaurants(){
-    //      document.getElementById('type').onchange = searchNearbyRestaurants
-    
+ 
     function searchNearbyRestaurants(){
-		// console.log("Selected searchNearbyRestaurants");
-
         //this grabs the table item from html and clears it out
         document.getElementById('restaurants').innerHTML = "<tr><th><b>Contact Information</b></th><th><b>Location Image</b></th></tr>";
 
@@ -40,7 +28,6 @@
 
     function callback(results, status) {
         if(status === google.maps.places.PlacesServiceStatus.OK) {
-        //    console.log(results.length)
            for(var i = 0; i < results.length; i++) {
                createMarker(results[i]);
         }
@@ -49,7 +36,6 @@
 	}
 
     function createMarker(restaurant) {
-        // console.log(restaurant);
         var table = document.getElementById("restaurants");
         var row = table.insertRow();
         var cell1 = row.insertCell(0);
@@ -89,7 +75,6 @@
             let cell2 = row.insertCell(1);
             image.width = 225;
             image.height = 150;
-            // image.style.borderRadius = 50;
             cell2.innerHTML = image.outerHTML;
             cell2.innerHTML += ("<div class=buttonContainer><button type=button id=" + restaurant.place_id +" class=\"addItem form-control btn btn-warning\">Add to Itinerary</button></div>");
 
@@ -112,20 +97,15 @@
     function addButton() {
         const groupId = document.querySelectorAll('button');
         groupId.forEach(button => {
-            //temporary way to check which buttons were grabbed
-            // button.style.backgroundColor = "red";
             button.addEventListener("click", saveGroupToLocalStorage);
         });
 
     function saveGroupToLocalStorage(event) {
-
-        // console.log("button was clicked");
         var group = event.currentTarget;
 
         group.style.background ="white";
 
         var content = group.id;
-        console.log("id is " + content);
 
         retrieveDetailsByID(content)
             .then((restaurant) => {
@@ -140,12 +120,6 @@
                 tempRestaurant = JSON.stringify(tempRestaurant);
 
                 localStorage.setItem("tempRestaurantInfo", tempRestaurant);
-
-                // var jsonString = localStorage.getItem("tempRestaurantInfo");
-                // JSON.parse(jsonString);
-                // console.log("from jsonstring:" + JSON.parse(jsonString).name);
-                // var placeToSave = JSON.parse(jsonString);
-
 
         const restaurantId = generateUniqId();
 
@@ -165,11 +139,7 @@
          const inputKeys = JSON.parse(localStorage.getItem('inputKeys')) || [];
          inputKeys.push(restaurantId);
          localStorage.setItem('inputKeys', JSON.stringify(inputKeys));
-
-         console.log("restaurant with ID" +  groupId  + " saved to local storage.");
-        } else { 
-        console.log("restaurant with ID" +  groupId  + " already exists in local storage.");
-        }
+        } 
     })
 }
     
@@ -191,7 +161,6 @@ function retrieveDetailsByID(Id) {
 
         service.getDetails(request, (place, status) => {
             if (status === google.maps.places.PlacesServiceStatus.OK) {
-                console.log("place details retrieved");
                 resolve(place); // Resolve the promise with the place details
             }
             else {
@@ -204,23 +173,16 @@ function retrieveDetailsByID(Id) {
 
   clearAllButton = document.getElementById("clearAllButton");
   clearAllButton.addEventListener("click", function () {
-    console.log ("clearAllButton was clicked");
     var restaurantTables = document.querySelectorAll(".restaurantTable");
     restaurantTables.forEach(function (restaurantTable) {
         restaurantTables.style.background = "beige";
     })
         var inputKeys = JSON.parse(localStorage.getItem('inputKeys'));
-        inputKeys.forEach(function (event) {
-            console.log("Saved key: " + event);
-        });
     
     if (inputKeys) {
         inputKeys.forEach(function (event) {
-            console.log ("Key " + event + " Removed");
             localStorage.removeItem(event);
         });
-    } else {
-        console.log("No input keys grabbed");
     }
        
   localStorage.removeItem("inputKeys");

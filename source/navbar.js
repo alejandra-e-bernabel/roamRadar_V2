@@ -10,11 +10,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 });
 
 
-
-// (START OF NICOLES PORTION)
-
-// console.log("entered navbar js");
-
+//LOCATION SECTION
 var outputTitle = document.getElementById("outputTitle");
 var outputStart = document.getElementById("outputStart");
 var outputEnd = document.getElementById("outputEnd");
@@ -47,13 +43,9 @@ var formattedStartDate = adjustedDate.toLocaleDateString("en-US", {
   day: "numeric",
 });
 outputStart.innerHTML = formattedStartDate;
-// (END OF NICOLES PORTION)
+// (END OF NAVIGATION SECTION)
 
-/* If adding JS to your portion of navbar page please do not touch CSS that is above, it will mess up 
-current look (ADD AT THE TOP AND BOTTOM OF YOUR SECTIONS YOUR NAME COMMENTED OUT TO AVOID GITHUB CONFLICTS ) */
-
-
-//(START OF ALEJANDRA'S PORTION)
+//(START OF PLACES TO VISIT SECTION)
 
 var visitButton = document.getElementById("placesToVisitButton");
 visitButton.addEventListener("click", function () {
@@ -70,23 +62,18 @@ function replacePlacesToVisit() {
     savedKeys.forEach(function (key) {
       var item = localStorage.getItem(key);
       document.getElementById("thingsToDoItemized").innerHTML += key;
-      console.log(item);
     });
   }
 }
 
-
 function populateThingsToDo() {
-  console.log("Entered populate things to do");
   var savedKeys = JSON.parse(localStorage.getItem('savedKeys'));
 
   if (savedKeys) {
-    console.log("saved keys grabbed");
     thingsToDoElement = document.getElementById("thingsToDoItemized")
     thingsToDoElement.innerHTML = "";
 
     savedKeys.forEach(function (key) {
-      console.log("Key is" + key);
       var item = localStorage.getItem(key);
       item = JSON.parse(item);
 
@@ -128,18 +115,13 @@ function populateThingsToDo() {
 
   }
 
-
 }
-
 
 clearButton = document.getElementById("clearButton");
 
 clearButton.addEventListener("click", function () {
-  console.log("clearItinerary clicked");
 
   var savedKeys = JSON.parse(localStorage.getItem('savedKeys'));
-
-  console.log(savedKeys);
 
   if (savedKeys) {
     savedKeys.forEach(function (e) {
@@ -158,28 +140,20 @@ clearButton.addEventListener("click", function () {
 
 
 });
+//END OF THINGS TO DO SECTION
 
-
-//(END OF ALEJANDRA'S PORTION)
-
-
-// (Yo's section)
+//FLIGHT SECTION
 var visitButton = document.getElementById("flightButton");
 visitButton.addEventListener("click", function () {
-  //code to show flights popup window
   $('#flightInfoModal').modal('show');
-  // window.location.href = "flight2.html";
 });
 
 //RESTAURANT SECTION
-
 var clearRestaurantsButton = document.getElementById("clearRestaurantsButton");
 
 clearRestaurantsButton.addEventListener("click", function () {
 
   var inputKeys = JSON.parse(localStorage.getItem('inputKeys'));
-
-  console.log(inputKeys);
 
   if (inputKeys) {
     inputKeys.forEach(function (e) {
@@ -195,8 +169,6 @@ clearRestaurantsButton.addEventListener("click", function () {
 
   var restaurantsItemized = document.getElementById("restaurantsItemized");
   restaurantsItemized.innerHTML = ("<h5>It looks like you haven't added anything to your restuarant itinerary yet. Try looking for some places to visit!</h5>");
-
-
 });
 
 function populateRestaurants() {
@@ -207,7 +179,6 @@ function populateRestaurants() {
     thingsToDoElement.innerHTML = "";
 
     inputKeys.forEach(function (key) {
-      console.log("Key is" + key);
       var item = localStorage.getItem(key);
       item = JSON.parse(item);
 
@@ -233,13 +204,6 @@ function populateRestaurants() {
       placesToVisitEl.innerHTML += itemBodyString;
 
     })
-
-
-    // var visitButton = document.getElementById("placesToVisitButton");
-    // visitButton.addEventListener("click", function () {
-    //   window.location.href = "thingsToDo.html";
-    // })
-
   }
 
   else {

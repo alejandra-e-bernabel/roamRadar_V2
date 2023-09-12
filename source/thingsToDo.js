@@ -10,21 +10,15 @@ function initMap() {
 }
 
 function searchNearbyPlaces() {
-
-    // console.log("Entered SearchNearbyPlaces Function");
-
     //resets table in case user enters a different location
     document.getElementById("places").innerHTML = "<tr><th>Contact information</th><th>Open hours</th><th class=hide-on-medium>Location Image</th></tr>";
 
     var place = autocomplete.getPlace();
-    // console.log(place);
 
     map = new google.maps.Map(document.getElementById("map"), {
         center: place.geometry.location,
         zoom: 15
     });
-
-    // console.log([document.getElementById("type").value]);
 
     service = new google.maps.places.PlacesService(map);
     service.nearbySearch({
@@ -33,12 +27,10 @@ function searchNearbyPlaces() {
         type: [document.getElementById("type").value]
 
     }, callback);
-    
 }
 
 function callback(results, status) {
     if (status == google.maps.places.PlacesServiceStatus.OK) {
-        // console.log("There are this many results: " + results.length);
         for (var i = 0; i < results.length; i++) {
             createMarker(results[i]);
         }
@@ -64,40 +56,19 @@ function getPlaceDetails(Id) {
             }
         });
     });
-
-}
-
-function callbackDetails(results, status) {
-    if (status === google.maps.places.PlacesServiceStatus.OK) {
-        // console.log('There are this many results:', results);
-    }
 }
 
 function createMarker(place) {
-    console.log("place from createMarker:" + place.name + place.place_id + place.website);
     var id = place.place_id;
     var table = document.getElementById("places");
     var row = table.insertRow();
-
-    // var cell0 = row.insertCell(0);
     var cell1 = row.insertCell(0);
     var cell2 = row.insertCell(1);
 
-    // cell0.innerHTML = "<button type=button id=addItineraryButton class=\"btn-lg addItineraryButton btn btn-info\">Add to Itinerary</button>";
-
     row.classList.add(place.place_id);
-   
 
     getPlaceDetails(id)
         .then((place) => {
-            // Access the place details and use them as needed
-            // console.log(place.name);
-            // console.log(place.formatted_address);
-            // console.log(place.rating);
-            // console.log(place.opening_hours);
-            // console.log(place.website);
-            // console.log(place.formatted_phone_number);
-
             if (!place.formatted_address) {
                 place.formatted_address = "No address available";
             }
@@ -120,7 +91,6 @@ function createMarker(place) {
                 htmlString += ("<div class=buttonRow><a class=\"tableButton btn btn-dark btn-sm\" href=\"" + place.website + "\" target=\"_blank\" rel=\"noopener noreferrer\">Visit website</a></div>");
             } else {
                 place.website = "No website address available";
-                // htmlString += ("<b><u>Website address:</u></b>" + place.website);
             }
             
             htmlString += ("<div class=itemInformation><p><b><u>Address</u></b>: " + place.formatted_address + "</p><p><b><u>Rating</u></b>: " + place.rating + "</p>");
@@ -129,11 +99,8 @@ function createMarker(place) {
             htmlString += ("<p><b><u>Phone number</u></b>: " + place.formatted_phone_number + "</p></div>");
             
             cell1.innerHTML = htmlString;
-            //saves location ID as the class of the item
-
 
             if (place.opening_hours.weekday_text) {
-                // console.log(place.opening_hours.weekday_text);
                 cell2.classList.add("openHoursCell");
                 cell2.innerHTML += ("Mon: " + place.opening_hours.weekday_text[0].substr(7));
                 cell2.innerHTML += ("<br>Tues: " + place.opening_hours.weekday_text[1].substr(8));
@@ -143,18 +110,15 @@ function createMarker(place) {
                 cell2.innerHTML += ("<br>Sat: " + place.opening_hours.weekday_text[5].substr(9));
                 cell2.innerHTML += ("<br>Sun: " + place.opening_hours.weekday_text[6].substr(8));
 
-
             } else {
                 cell2.innerHTML = "No hours available";
             }
-
 
         })
         .catch((error) => {
             // Handle the error if the API request fails
             console.error(error);
         });
-
 
     if (place.photos) {
         const image = document.createElement("img");
@@ -177,15 +141,11 @@ function createMarker(place) {
         image.style.borderRadius = 50;
         cell3.innerHTML = image.outerHTML;
     }
-
-
 }
 
 document.getElementById("type").onchange = searchNearbyPlaces;
 
-
 function addButton() {
-
     // Select all table rows
     const rows = document.querySelectorAll('table tr');
 
@@ -194,7 +154,6 @@ function addButton() {
         if (index!=0) {
         row.addEventListener("click", saveRowToLocalStorage);
         }
-
     });
 
     // Event listener function
@@ -221,28 +180,8 @@ function addButton() {
 
             localStorage.setItem("tempPlaceInfo", tempLocation);
 
-        //     console.log(place.name);
-        //     console.log(place.formatted_address);
-        //     console.log(place.formatted_phone_number);
-
-        //   if (place.website) {
-        //     console.log(place.website);
-        //   } else {
-        //     acesToVisitEl.innerHTML += ("<br><b><u>Website address:<br></u></b>" + place.website);
-        //   }
-
-        //   placesToVisitEl.innerHTML += ("<br><b><u>Phone number:<br></u></b>" + place.formatted_phone_number + "<br><br></div>");
-
-        var jsonString = localStorage.getItem("tempPlaceInfo");
-        JSON.parse(jsonString);
-        console.log("from jsonstring:" + JSON.parse(jsonString).name);
-        // var placeToSave = JSON.parse(jsonString);
-
         // Generate a unique ID for the row
         const rowId = generateUniqueId();
-
-        //save unique ID to key savedThingsToDo
-
 
         let isContentSaved = false;
         for (let i = 0; i < localStorage.length; i++) {
@@ -253,36 +192,22 @@ function addButton() {
             }
         }
 
-
         if (!isContentSaved) {
             // Save the row content to local storage with the unique ID
             localStorage.setItem(rowId, localStorage.getItem("tempPlaceInfo"));
-            //localStorage.setItem(rowId, JSON.stringify(content));
-
 
             // Add the key to the array of keys in local storage
             const savedKeys = JSON.parse(localStorage.getItem('savedKeys')) || [];
             savedKeys.push(rowId);
             localStorage.setItem('savedKeys', JSON.stringify(savedKeys));
-
-
-            // Optional: Display a message that the row was saved
-            console.log("Row with ID" + rowId + "saved to local storage.");
-        } else {
-            // Optional: Display a message that the row was already saved
-            console.log("Row with ID" + rowId + "already exists in local storage.");
-        }
+        } 
 
         })
-
-        
-
-
     }
 
     // Function to generate a unique ID for each row
     function generateUniqueId() {
-        return Math.random().toString(36).substr(2, 9);
+        return Math.random().toString(36).substring(2, 9);
     }
 }
 
@@ -303,13 +228,7 @@ clearButton.addEventListener("click", function () {
 
         localStorage.removeItem("savedKeys");
     });
-
-
-
-
 });
-
-
 
 function retrieveDetailsByID(Id) {
 
@@ -323,7 +242,6 @@ function retrieveDetailsByID(Id) {
 
     service.getDetails(request, (place, status) => {
       if (status === google.maps.places.PlacesServiceStatus.OK) {
-        console.log("place details retrieved");
         resolve(place); // Resolve the promise with the place details
       }
       else {

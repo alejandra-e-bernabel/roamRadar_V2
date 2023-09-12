@@ -1,4 +1,3 @@
-// console.log ("Entered budget.js");
 const addExpenseButton = document.getElementById('addExpenseButton');
 const expenseModal = document.getElementById('expenseModal');
 const closeModal = document.getElementsByClassName('close')[0];
@@ -14,10 +13,8 @@ let budgetAmount = localStorage.getItem('budgetAmount');
 if (budgetAmount) {
     budgetAmountInput.value = budgetAmount;
     let setAmount = parseFloat(budgetAmount).toFixed(2);
-    // console.log("setAmount is "+ setAmount + "\nbudgetAmoutn is " + budgetAmount);
 
     document.getElementById("currBudgetText").innerHTML = "Current budget: $" + setAmount;
-    // document.getElementById("currBudgetText").innerHTML = "Current budget: $" + budgetAmount; 
 }
 
 // Check if expenses exist in local storage
@@ -56,26 +53,6 @@ function saveExpense() {
     updateNumericTracker();
 }
 
-// function updateBudget() {
-//     budgetAmount = budgetAmountInput.value;
-//     localStorage.setItem('budgetAmount', budgetAmount);
-//     updateProgressBar();
-// }
-
-// function populateExpenses() {
-//     expenseList.innerHTML = '';
-
-//     for (let i = 0; i <expenses.length; i++) {
-//         const expense = expenses[i];
-
-//         const expenseItem = document.createElement('div');
-//         expenseItem.classList.add('expense-item');
-//         expenseItem.innerHTML = "<div>Type: " + expense.type + "</div><div>Amount: $"+ expense.amount + "</div>";
-
-//         expenseList.appendChild(expenseItem);
-//     }
-// }
-
 function updateBudget() {
     budgetAmount = budgetAmountInput.value;
     localStorage.setItem('budgetAmount', budgetAmount);
@@ -85,9 +62,6 @@ function updateBudget() {
         document.getElementById("currBudgetText").innerHTML = "Budget has not been set"; 
     } else {
         let setAmount = parseFloat(budgetAmount).toFixed(2);
-
-        console.log("setAmount is "+ setAmount + "budgetAmoutn is " + budgetAmount);
-
         document.getElementById("currBudgetText").innerHTML = "Current budget: $" + setAmount; 
     }
 }
@@ -98,9 +72,7 @@ function populateExpenses() {
     for (let i = 0; i < expenses.length; i++) {
         const expense = expenses[i];
 
-        const expenseItem = document.createElement('div');
-        // expenseItem.classList.add('expense-item');
-        
+        const expenseItem = document.createElement('div');        
 
         const expenseInfo = document.createElement('div');
         expenseInfo.classList.add("expenseItem");
@@ -113,7 +85,6 @@ function populateExpenses() {
         deleteButton.innerHTML = '<b>Delete expense</b>';
         deleteButton.classList.add("btn");
         deleteButton.classList.add("btn-warning");
-        // deleteButton.classList.add("deleteButton");
 
         deleteButton.addEventListener('click', function() {
             deleteExpense(i);
@@ -162,18 +133,12 @@ function updateNumericTracker() {
 // Get the clear budget button element
 const clearBudgetButton = document.getElementById('clearBudgetButton');
 
-// Add event listener for clear budget button click 
-
 clearBudgetButton.addEventListener('click', clearBudget);
 
 // Function to clear the budget 
 function clearBudget() {
-    // localStorage.removeItem('budgetAmount');
     localStorage.removeItem('expenses'); 
-    budgetAmountInput.value = ''; 
-    // document.getElementById("currBudgetText").innerHTML = "Current budget: $0"; 
-
-    
+    budgetAmountInput.value = '';     
     expenses = []; 
     
     if (expenses.length == 0) {

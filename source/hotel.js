@@ -129,6 +129,5 @@ function clearSections() {
 
     sectionsContainer = document.getElementById('sectionsContainer')
     sectionsContainer.innerHTML = "<b>No lodgings have been entered yet.</b>";
-    // sectionsContainer.classList.add("centerText");
 
 }

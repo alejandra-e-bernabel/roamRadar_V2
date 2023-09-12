@@ -33,7 +33,6 @@
         <div class="budgetButtonContainer">
             <button class="button btn btn-info" onclick="openPopup()">Edit Budget</button>
             <button class="button btn btn-info" id="addExpenseButton">+ Add expense</button>
-            <!-- <button id="addTripmateButton" class="button">Add tripmate</button> -->
             <button class="button btn btn-warning" id="clearBudgetButton">Clear Budget</button>
         </div>
 
@@ -48,28 +47,23 @@
         </div>
 
         <div class="trackerContainer">
-            <!-- <div id="trackers"> -->
-                <div id="numericTracker"></div>
-                <!-- <div id="visualTracker"></div> -->
-            <!-- </div> -->
+            <div id="numericTracker"></div>
             <div class="barOutline">
                 <div id="bar"></div>
             </div>
         </div>
-        
-       
     </div>
 
     <div class="itemizedExpenses">
         <div class="seeExpensesContainer">
-            <button class= "btn btn-lg btn-outline-dark" id="expensesButton" onclick="toggleExpenses()"><b>See Expenses</b></button>
+            <button class="btn btn-lg btn-outline-dark" id="expensesButton" onclick="toggleExpenses()"><b>See
+                    Expenses</b></button>
         </div>
-    
+
         <div id="expenseList" style="display: none;">
             No expenses added.<!-- Expenses will go here -->
         </div>
     </div>
-   
 
     <div id="expenseModal" class="popup">
         <div class="popup-content">
