@@ -11,6 +11,9 @@ A travel itinerary storage app. Updated from version without mobile use.
 ![Flight Information Section](image-5.png)
 ![Lodging Section](image-6.png)
 
+### GitHub Pages Link
+https://alejandra-e-bernabel.github.io/roamRadar_V2/
+
 ## How to Operate
 RoamRadar is a travel itinerary where everything is stored in local storage. Begin by selecting a location, then feel free to fill in trip information. This includes hotel information, budgetting with sections for user to input types spent, places to visit, restaurants to eat at, and flight information. 
 
