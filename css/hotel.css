@@ -40,7 +40,7 @@ body {
     margin: 10px;
     border-radius: 5px;
 
-    padding: 5px;
+    /* padding: 5px; */
 
     display: flexbox;
     justify-content: center;
@@ -50,14 +50,6 @@ body {
     display: flex;
     justify-content: center;
     
-}
-
-.hotelNameInput {
-    /* margin: 10px; */
-}
-
-.addressInput {
-    /* margin: 10px; */
 }
 
 .additionalNotesContainer {
@@ -70,10 +62,8 @@ body {
 
 .lodgingSection {
     background-color: lightblue;
-
     margin: 10px;
     border-radius: 5px;
-
     padding: 5px;
 
 }

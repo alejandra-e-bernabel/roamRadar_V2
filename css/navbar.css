@@ -1,5 +1,6 @@
 body {
   overflow-x: hidden;
+  background-color: aliceblue;
 }
 
 * {
@@ -8,7 +9,7 @@ body {
 
 /* Navigation bar styling*/
 #navbar {
-  background-color: #f2f2f2;
+  background-color: #87CEFA;
   padding: 20px;
 }
 
@@ -210,7 +211,7 @@ body {
   }
 
   .placeToVisitItemBody {
-    background-color: aliceblue;
+    background-color: #fff4d9;
   }
   
   .noColor {
