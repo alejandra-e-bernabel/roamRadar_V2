@@ -10,6 +10,10 @@
     font-weight: 300;
 }
 
+body {
+    overflow-x: hidden;
+}
+
 header {
 /* font-size: 8px; */
 
