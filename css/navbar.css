@@ -3,9 +3,6 @@ body {
   background-color: aliceblue;
 }
 
-* {
-  font-family: 'Montserrat', sans-serif;
-}
 
 /* Navigation bar styling*/
 #navbar {
@@ -31,17 +28,24 @@ body {
   font-size: 18px;
 }
 
+.section {
+  padding-top: 90px; /* Add extra padding to offset the top navigation */
+}
+
 /* For small screens */
 @media (max-width: 767px) {
    #navbar {
     display: flex;
     flex-wrap: wrap; 
-    justify-content: space-between; /
+    justify-content: center; 
     align-items: center;
     position: sticky;
     top: 0;
-    padding-top: 50px;
+    gap: 15px;
+    padding-top: 10px;
     z-index: 1; 
+    font-weight: bolder;
+    
   }
 
 
