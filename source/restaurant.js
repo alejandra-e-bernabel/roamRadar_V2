@@ -139,9 +139,9 @@
 
                 tempRestaurant = JSON.stringify(tempRestaurant);
 
-                localStorage.setItem("tempRestautantInfo", tempRestaurant);
+                localStorage.setItem("tempRestaurantInfo", tempRestaurant);
 
-                // var jsonString = localStorage.getItem("tempRestautantInfo");
+                // var jsonString = localStorage.getItem("tempRestaurantInfo");
                 // JSON.parse(jsonString);
                 // console.log("from jsonstring:" + JSON.parse(jsonString).name);
                 // var placeToSave = JSON.parse(jsonString);
@@ -159,7 +159,7 @@
         }
 
         if (!isContSaved){
-         localStorage.setItem(restaurantId, localStorage.getItem("tempRestautantInfo"));
+         localStorage.setItem(restaurantId, localStorage.getItem("tempRestaurantInfo"));
 
 
          const inputKeys = JSON.parse(localStorage.getItem('inputKeys')) || [];
@@ -204,19 +204,26 @@ function retrieveDetailsByID(Id) {
 
   clearAllButton = document.getElementById("clearAllButton");
   clearAllButton.addEventListener("click", function () {
+    console.log ("clearAllButton was clicked");
     var restaurantTables = document.querySelectorAll(".restaurantTable");
     restaurantTables.forEach(function (restaurantTable) {
-        restaurantTable.style.background = "beige";
-
+        restaurantTables.style.background = "beige";
+    })
         var inputKeys = JSON.parse(localStorage.getItem('inputKeys'));
+        inputKeys.forEach(function (event) {
+            console.log("Saved key: " + event);
+        });
     
     if (inputKeys) {
         inputKeys.forEach(function (event) {
+            console.log ("Key " + event + " Removed");
             localStorage.removeItem(event);
         });
+    } else {
+        console.log("No input keys grabbed");
     }
        
-  });
   localStorage.removeItem("inputKeys");
+  localStorage.removeItem("tempRestaurantInfo")
   localStorage.setItem('inputKeys',JSON.stringify([]));
 });

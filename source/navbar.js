@@ -192,7 +192,7 @@ var visitButton = document.getElementById("flightButton");
 
     clearRestaurantsButton.addEventListener("click", function () {
     
-      var inputKeys = JSON.parse(localStorage.getItem('inoutKeys'));
+      var inputKeys = JSON.parse(localStorage.getItem('inputKeys'));
     
       console.log(inputKeys);
     
@@ -202,7 +202,7 @@ var visitButton = document.getElementById("flightButton");
         });
       }
 
-      if (localStorage.getItem("tempRestautantInfo")) {
+      if (localStorage.getItem("tempRestaurantInfo")) {
         localStorage.removeItem("tempRestaurantInfo");
       }
     
