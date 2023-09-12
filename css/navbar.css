@@ -32,6 +32,14 @@ body {
   padding-top: 90px; /* Add extra padding to offset the top navigation */
 }
 
+.roamRadar {
+  display: none;
+}
+
+.roamRadarLargeScreen {
+  display: none;
+}
+
 /* For small screens */
 @media (max-width: 767px) {
    #navbar {
@@ -48,6 +56,21 @@ body {
     
   }
 
+  .roamRadar {
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: center; 
+    align-items: center;
+    position: sticky;
+    top: 0;
+    gap: 15px;
+    padding-top: 10px;
+    z-index: 1; 
+    font-weight: bolder;
+
+    background-color: #FFE49E;
+  }
+
 
   .index-page #logo-container {
     justify-content: flex-start; /* Align logo and name to the left */
@@ -55,7 +78,7 @@ body {
   }
 
   .index-page #logo-container img {
-    display: none; /* Hide the logo image on small screens */
+    display: none; /*Hide the logo image on small screens */
   }
 
   .index-page #navbar a {
@@ -67,6 +90,21 @@ body {
 @media (min-width: 768px) {
   .index-page {
     display: flex;
+  }
+
+  .roamRadarLargeScreen {
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: center; 
+    align-items: center;
+    position: sticky;
+    top: 0;
+    gap: 15px;
+    padding-top: 10px;
+    z-index: 1; 
+    font-weight: bolder;
+
+    background-color: #FFE49E;
   }
 
   .index-page #main-content {
@@ -224,4 +262,18 @@ body {
   text-shadow:2px 2px 2px rgb(255, 203, 72);
   display: flex;
   justify-content: center;
+}
+
+.radar {
+  /* color: #0D6FE5; */
+  /* font-family:'Dancing Script', cursive; */
+
+}
+
+.roam {
+  /* color: #03C1AF; */
+}
+
+.cursive {
+  font-family:'Dancing Script', cursive;
 }
