@@ -1,3 +1,13 @@
+// Load the .env file
+require('dotenv').config();
+
+// Access the API key from the .env file
+const apiKey = process.env.API_KEY;
+
+// Replace the placeholder in the HTML script tag with the actual API key
+const scriptTag = document.querySelector('script[src*=maps.googleapis]');
+scriptTag.src = scriptTag.src.replace('API_KEY', apiKey);
+
 var startTripBtn = document.getElementById("startTripBtn");
 var whereToBox = document.getElementById("floatingInput");
 var startDate = document.getElementById("startDate");

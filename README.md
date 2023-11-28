@@ -2,14 +2,14 @@
 A travel itinerary storage app. Updated from version without mobile use.
 
 # Project screenshots
-![Home page](image.png)
-![Login Page](image-1.png)
-![Navigation Page](image-2.png)
-![Places to visit](image-7.png)
-![Restaurants to Visit](image-3.png)
-![Budget Section](image-4.png)
-![Flight Information Section](image-5.png)
-![Lodging Section](image-6.png)
+![Home page](/images/image.png)
+![Login Page](/images/image-1.png)
+![Navigation Page](/images/image-2.png)
+![Places to visit](/images/image-7.png)
+![Restaurants to Visit](/images/image-3.png)
+![Budget Section](/images/image-4.png)
+![Flight Information Section](/images/image-5.png)
+![Lodging Section](/images/image-6.png)
 
 ### GitHub Pages Link
 https://alejandra-e-bernabel.github.io/roamRadar_V2/

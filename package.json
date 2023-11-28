@@ -1,0 +1,23 @@
+{
+  "name": "roamradar_v2",
+  "version": "1.0.0",
+  "description": "A travel information storage application",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alejandra-e-bernabel/roamRadar_V2.git"
+  },
+  "author": "Alejandra Bernabel",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/alejandra-e-bernabel/roamRadar_V2/issues"
+  },
+  "homepage": "https://github.com/alejandra-e-bernabel/roamRadar_V2#readme",
+  "dependencies": {
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2"
+  }
+}
