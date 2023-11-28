@@ -16,11 +16,19 @@ app.get('/', (req, res) =>
 );
 
 app.get('/location', (req, res) => {
-    const locationHtml = path.join(__dirname, '/public/location.html');
-    const apiKeyPlaceholder = 'API_KEY'
-    const apiKey = process.env.API_KEY
-    res.sendFile(locationHtml.replace(apiKeyPlaceholder, apiKey));
-})
+  const apiKey = process.env.API_KEY;
+
+  if (!apiKey) {
+      console.error('API key not found');
+      return res.status(500).send('Internal Server Error');
+  }
+
+  console.log('API Key:', apiKey);
+
+  const locationHtml = path.join(__dirname, '/public/location.html');
+  const apiKeyPlaceholder = 'API_KEY';
+  res.sendFile(locationHtml.replace(apiKeyPlaceholder, apiKey));
+});
 
 app.get('/restaurant', (req, res) => {
     const locationHtml = path.join(__dirname, '/public/restaurant.html');
