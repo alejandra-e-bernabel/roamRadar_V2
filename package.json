@@ -2,7 +2,7 @@
   "name": "roamradar_v2",
   "version": "1.0.0",
   "description": "A travel information storage application",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "start": "node server.js"
   },
